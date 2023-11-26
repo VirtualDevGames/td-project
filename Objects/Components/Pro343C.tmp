@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://bb4v80m831dyl"]
+
+[ext_resource type="Texture2D" uid="uid://ddcyv66ikjetk" path="res://Resources/Sprites/VFX/Retro Impact Effect Pack 2 A.png" id="1_wumqj"]
+[ext_resource type="Script" path="res://Objects/Components/ProjectileOnHitVFX.gd" id="2_d7cf8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubeuw"]
+atlas = ExtResource("1_wumqj")
+region = Rect2(0, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj8om"]
+atlas = ExtResource("1_wumqj")
+region = Rect2(0, 832, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sferp"]
+atlas = ExtResource("1_wumqj")
+region = Rect2(64, 832, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fataa"]
+atlas = ExtResource("1_wumqj")
+region = Rect2(128, 832, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65bvo"]
+atlas = ExtResource("1_wumqj")
+region = Rect2(192, 832, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_038y2"]
+atlas = ExtResource("1_wumqj")
+region = Rect2(0, 768, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kottb"]
+atlas = ExtResource("1_wumqj")
+region = Rect2(64, 768, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0rhg"]
+atlas = ExtResource("1_wumqj")
+region = Rect2(128, 768, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hic20"]
+atlas = ExtResource("1_wumqj")
+region = Rect2(192, 768, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbp1l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubeuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj8om")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sferp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fataa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65bvo")
+}],
+"loop": true,
+"name": &"explosion1",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_038y2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kottb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0rhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hic20")
+}],
+"loop": true,
+"name": &"explosion2",
+"speed": 12.0
+}]
+
+[node name="ProjectileOnHitVFX" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_jbp1l")
+animation = &"explosion1"
+centered = false
+script = ExtResource("2_d7cf8")

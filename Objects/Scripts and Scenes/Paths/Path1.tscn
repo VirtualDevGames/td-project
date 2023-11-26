@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b64npq1vquedw"]
+
+[ext_resource type="Script" path="res://Objects/Scripts and Scenes/Paths/Path1.gd" id="1_nte05"]
+
+[sub_resource type="Curve2D" id="Curve2D_ydwl0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 86.835, 17, 0, 0, 0, 0, 88.835, 32, 0, 0, 0, 0, 103.835, 33, 0, 0, 0, 0, 103.835, 80, 0, 0, 0, 0, 71.835, 81, 0, 0, 0, 0, 71.835, 143, 0, 0, 0, 0, 87.835, 144, 0, 0, 0, 0, 88.835, 160, 0, 0, 0, 0, 151.835, 160, 0, 0, 0, 0, 151.835, 145, 0, 0, 0, 0, 167.835, 145, 0, 0, 0, 0, 167.835, 65, 0, 0, 0, 0, 151.835, 64, 0, 0, 0, 0, 152.835, -15, 0, 0, 0, 0, 232.835, -15, 0, 0, 0, 0, 231.835, -1, 0, 0, 0, 0, 247.835, 1, 0, 0, 0, 0, 249.835, 33, 0, 0, 0, 0, 264.835, 31, 0, 0, 0, 0, 263.835, 83, 0, 0, 0, 0, 281.835, 81, 0, 0, 0, 0, 279.835, 96, 0, 0, 0, 0, 519, 97)
+}
+point_count = 25
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_ydwl0")
+script = ExtResource("1_nte05")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+loop = false
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

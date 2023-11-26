@@ -1,0 +1,114 @@
+[gd_scene load_steps=25 format=3 uid="uid://bah15ruqrecg5"]
+
+[ext_resource type="Script" path="res://Objects/Parallax Backgrounds/MainMenu_ParallaxSky.gd" id="1_f1ogh"]
+[ext_resource type="Texture2D" uid="uid://c6ucakkgu6tle" path="res://Resources/Background Images/Clouds 1/1.png" id="2_xsi77"]
+[ext_resource type="Texture2D" uid="uid://ds1w4sg8v7thi" path="res://Resources/Background Images/Clouds 1/2.png" id="3_7ywir"]
+[ext_resource type="Texture2D" uid="uid://c0eb2hcgbg61b" path="res://Resources/Background Images/Clouds 1/3.png" id="4_b8n6l"]
+[ext_resource type="Texture2D" uid="uid://bc8p706rcdcxt" path="res://Resources/Background Images/Clouds 1/4.png" id="5_u3xxf"]
+[ext_resource type="Texture2D" uid="uid://djtlgitq2euow" path="res://Resources/Background Images/Clouds 2/1.png" id="6_dgwls"]
+[ext_resource type="Texture2D" uid="uid://dcbguk6bpqd6l" path="res://Resources/Background Images/Clouds 2/2.png" id="7_qsiqj"]
+[ext_resource type="Texture2D" uid="uid://cqhsiiu3iukwq" path="res://Resources/Background Images/Clouds 2/3.png" id="8_0ucj5"]
+[ext_resource type="Texture2D" uid="uid://djmwyo8fao6yr" path="res://Resources/Background Images/Clouds 2/4.png" id="9_s412p"]
+[ext_resource type="Texture2D" uid="uid://cenf084ygqkl5" path="res://Resources/Background Images/Clouds 5/1.png" id="10_1yb2c"]
+[ext_resource type="Texture2D" uid="uid://l5ivknpgq0i4" path="res://Resources/Background Images/Clouds 5/2.png" id="11_e75tk"]
+[ext_resource type="Texture2D" uid="uid://3r6hfvcnxlnq" path="res://Resources/Background Images/Clouds 5/3.png" id="12_kw3ji"]
+[ext_resource type="Texture2D" uid="uid://c7nwpr4gy5nac" path="res://Resources/Background Images/Clouds 5/4.png" id="13_bgwlb"]
+[ext_resource type="Texture2D" uid="uid://bvwoel7wi1sqg" path="res://Resources/Background Images/Clouds 5/5.png" id="14_r44sf"]
+[ext_resource type="Texture2D" uid="uid://bc6aw23jbvsff" path="res://Resources/Background Images/Clouds 6/1.png" id="15_y26d5"]
+[ext_resource type="Texture2D" uid="uid://ddp2ptly01bpo" path="res://Resources/Background Images/Clouds 6/2.png" id="16_akn77"]
+[ext_resource type="Texture2D" uid="uid://3lphkwnpbrg8" path="res://Resources/Background Images/Clouds 6/3.png" id="17_3f1h7"]
+[ext_resource type="Texture2D" uid="uid://4is3bnfpolal" path="res://Resources/Background Images/Clouds 6/4.png" id="18_2a1wb"]
+[ext_resource type="Texture2D" uid="uid://xq4prlv5h0vy" path="res://Resources/Background Images/Clouds 6/5.png" id="19_jabbi"]
+[ext_resource type="Texture2D" uid="uid://hfdjqydsd4n8" path="res://Resources/Background Images/Clouds 6/6.png" id="20_l751a"]
+[ext_resource type="Texture2D" uid="uid://il2uguixystx" path="res://Resources/Background Images/Clouds 7/1.png" id="21_qm87w"]
+[ext_resource type="Texture2D" uid="uid://degp0o2fb84su" path="res://Resources/Background Images/Clouds 7/2.png" id="22_utb1w"]
+[ext_resource type="Texture2D" uid="uid://db86eu866uy4e" path="res://Resources/Background Images/Clouds 7/3.png" id="23_cdew3"]
+[ext_resource type="Texture2D" uid="uid://dopfb1js5g5si" path="res://Resources/Background Images/Clouds 7/4.png" id="24_4ebu3"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" node_paths=PackedStringArray("TextureRecs")]
+script = ExtResource("1_f1ogh")
+TextureRecs = [NodePath("TextureRect"), NodePath("ParallaxLayer/TextureRect2"), NodePath("ParallaxLayer2/TextureRect3"), NodePath("ParallaxLayer3/TextureRect4"), NodePath("ParallaxLayer4/TextureRect5"), NodePath("ParallaxLayer5/TextureRect6")]
+ImageSet1 = Array[CompressedTexture2D]([ExtResource("2_xsi77"), ExtResource("3_7ywir"), ExtResource("4_b8n6l"), ExtResource("5_u3xxf")])
+ImageSet2 = Array[CompressedTexture2D]([ExtResource("6_dgwls"), ExtResource("7_qsiqj"), ExtResource("8_0ucj5"), ExtResource("9_s412p")])
+ImageSet3 = Array[CompressedTexture2D]([ExtResource("10_1yb2c"), ExtResource("11_e75tk"), ExtResource("12_kw3ji"), ExtResource("13_bgwlb"), ExtResource("14_r44sf")])
+ImageSet4 = Array[CompressedTexture2D]([ExtResource("15_y26d5"), ExtResource("16_akn77"), ExtResource("17_3f1h7"), ExtResource("18_2a1wb"), ExtResource("19_jabbi"), ExtResource("20_l751a")])
+ImageSet5 = Array[CompressedTexture2D]([ExtResource("21_qm87w"), ExtResource("22_utb1w"), ExtResource("23_cdew3"), ExtResource("24_4ebu3")])
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xsi77")
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="TextureRect3" type="TextureRect" parent="ParallaxLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="TextureRect4" type="TextureRect" parent="ParallaxLayer3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="TextureRect5" type="TextureRect" parent="ParallaxLayer4"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(200, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="TextureRect6" type="TextureRect" parent="ParallaxLayer5"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjsor3biigads"]
+
+[ext_resource type="PackedScene" uid="uid://bah15ruqrecg5" path="res://Objects/Parallax Backgrounds/MainMenu_ParallaxSky.tscn" id="1_2b2bf"]
+[ext_resource type="Theme" uid="uid://r2x7huk7hw6x" path="res://Resources/UI/Themes/MainMenuTheme.tres" id="1_b2umw"]
+[ext_resource type="Script" path="res://Objects/Scripts and Scenes/Menus/MainMenu.gd" id="2_l4mk8"]
+[ext_resource type="FontFile" uid="uid://bxvnmdh50e4qp" path="res://Resources/UI/Fonts/NicoPaint-Regular.ttf" id="2_x878f"]
+[ext_resource type="Texture2D" uid="uid://bygmbnb88u6dw" path="res://Resources/UI/Assets/Buttons/Yellow/Long Pressed/yellow_pressed_long.png" id="4_8vf7k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bw85m"]
+texture = ExtResource("4_8vf7k")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 324)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_b2umw")
+script = ExtResource("2_l4mk8")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_2b2bf")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 324)
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_x878f")
+theme_override_font_sizes/font_size = 32
+text = "[ Goat game of all time  ]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons vbox" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bw85m")
+text = "Start"
+icon_alignment = 1
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Quit"
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Buttons vbox/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Buttons vbox/StartButton" to="." method="_on_start_button_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons vbox/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Buttons vbox/QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Buttons vbox/QuitButton" to="." method="_on_quit_button_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons vbox/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5huxulh1bief"]
+
+[ext_resource type="Script" path="res://Objects/Scripts and Scenes/Projectiles/ProjectileBase.gd" id="1_4frp5"]
+[ext_resource type="Texture2D" uid="uid://ch1b6rmxtq88h" path="res://Resources/Sprites/bullet.png" id="2_ro6j3"]
+[ext_resource type="PackedScene" uid="uid://bb4v80m831dyl" path="res://Objects/Components/ProjectileOnHitVFX.tscn" id="3_7p2fk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w2r1i"]
+radius = 4.0
+
+[node name="ProjectileBase" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_4frp5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_ro6j3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w2r1i")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_w2r1i")
+
+[node name="ProjectileOnHitVFX" parent="." node_paths=PackedStringArray("projectileBase") instance=ExtResource("3_7p2fk")]
+visible = false
+animation = &"RingExplosion"
+frame = 0
+frame_progress = 0.0
+projectileBase = NodePath("..")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="animation_finished" from="ProjectileOnHitVFX" to="." method="_on_projectile_on_hit_vfx_animation_finished"]

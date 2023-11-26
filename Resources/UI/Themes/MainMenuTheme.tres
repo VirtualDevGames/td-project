@@ -1,0 +1,42 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://r2x7huk7hw6x"]
+
+[ext_resource type="Texture2D" uid="uid://bst3k3xph5v6p" path="res://Resources/UI/Assets/Buttons/Yellow/Long/yellow_long.png" id="1_th8of"]
+[ext_resource type="Texture2D" uid="uid://bygmbnb88u6dw" path="res://Resources/UI/Assets/Buttons/Yellow/Long Pressed/yellow_pressed_long.png" id="2_dvx20"]
+[ext_resource type="FontFile" uid="uid://bxvnmdh50e4qp" path="res://Resources/UI/Fonts/NicoPaint-Regular.ttf" id="2_igb85"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lbjlr"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_th8of")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nkmtm"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_th8of")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e4s25"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_th8of")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nxiaa"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("2_dvx20")
+
+[resource]
+default_font = ExtResource("2_igb85")
+default_font_size = 16
+Button/font_sizes/font_size = 32
+Button/styles/focus = SubResource("StyleBoxTexture_lbjlr")
+Button/styles/hover = SubResource("StyleBoxTexture_nkmtm")
+Button/styles/normal = SubResource("StyleBoxTexture_e4s25")
+Button/styles/pressed = SubResource("StyleBoxTexture_nxiaa")

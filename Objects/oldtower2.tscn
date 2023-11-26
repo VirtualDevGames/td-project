@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://8iter452j34g"]
+
+[ext_resource type="Script" path="res://Objects/Scripts and Scenes/Towers/towerBase.gd" id="1_2fqv5"]
+[ext_resource type="Texture2D" uid="uid://bf60ks0qukwna" path="res://Resources/Sprites/gunner1_1.png" id="2_p58eo"]
+[ext_resource type="Texture2D" uid="uid://34yj4rlr8dvs" path="res://Resources/Sprites/gunner1_2.png" id="3_4rtp2"]
+[ext_resource type="Texture2D" uid="uid://c6fgphthr5x8c" path="res://Resources/Sprites/gunner1_3.png" id="4_hkwhj"]
+[ext_resource type="Texture2D" uid="uid://bboy6527x076r" path="res://Resources/Sprites/gunner1_4.png" id="5_v3vq7"]
+[ext_resource type="Texture2D" uid="uid://dsjellqapisso" path="res://Resources/Sprites/gunner1_5.png" id="6_avt1a"]
+[ext_resource type="Texture2D" uid="uid://bwcy3sdal5lxw" path="res://Resources/Sprites/crosshair.png" id="7_faqk8"]
+[ext_resource type="Script" path="res://Objects/turretTimer.gd" id="8_exbil"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wc7r5"]
+radius = 52.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64erv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p58eo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4rtp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hkwhj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v3vq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_avt1a")
+}],
+"loop": false,
+"name": &"gunner1",
+"speed": 15.0
+}]
+
+[node name="towerBase" type="Node2D"]
+script = ExtResource("1_2fqv5")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_wc7r5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_64erv")
+animation = &"gunner1"
+
+[node name="crosshair" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_faqk8")
+
+[node name="Shooting Timer" type="Timer" parent="."]
+script = ExtResource("8_exbil")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Shooting Timer" to="." method="_on_timer_timeout"]

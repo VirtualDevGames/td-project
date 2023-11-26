@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://8iter452j34g"]
+
+[ext_resource type="Script" path="res://Objects/towerBase.gd" id="1_j8hkl"]
+[ext_resource type="Texture2D" uid="uid://bf60ks0qukwna" path="res://Resources/Sprites/gunner1_1.png" id="2_fvdya"]
+[ext_resource type="Texture2D" uid="uid://34yj4rlr8dvs" path="res://Resources/Sprites/gunner1_2.png" id="3_l5yk0"]
+[ext_resource type="Texture2D" uid="uid://c6fgphthr5x8c" path="res://Resources/Sprites/gunner1_3.png" id="4_6xtt5"]
+[ext_resource type="Texture2D" uid="uid://bboy6527x076r" path="res://Resources/Sprites/gunner1_4.png" id="5_nfqf8"]
+[ext_resource type="Texture2D" uid="uid://dsjellqapisso" path="res://Resources/Sprites/gunner1_5.png" id="6_0j5by"]
+[ext_resource type="Texture2D" uid="uid://bwcy3sdal5lxw" path="res://Resources/Sprites/crosshair.png" id="7_ksy1k"]
+[ext_resource type="Script" path="res://Objects/turretTimer.gd" id="8_0ge3r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wc7r5"]
+radius = 52.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64erv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fvdya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l5yk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6xtt5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nfqf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0j5by")
+}],
+"loop": false,
+"name": &"gunner1",
+"speed": 15.0
+}]
+
+[node name="towerBase" type="Node2D"]
+script = ExtResource("1_j8hkl")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_wc7r5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_64erv")
+animation = &"gunner1"
+
+[node name="Shoot Location" type="Marker2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(-2.86102e-05, 8)
+rotation = 1.5708
+
+[node name="crosshair" type="Sprite2D" parent="AnimatedSprite2D/Shoot Location"]
+z_index = 1
+scale = Vector2(0.64, 0.64)
+texture = ExtResource("7_ksy1k")
+
+[node name="crosshair" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_ksy1k")
+
+[node name="Shooting Timer" type="Timer" parent="."]
+script = ExtResource("8_0ge3r")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Shooting Timer" to="." method="_on_timer_timeout"]
