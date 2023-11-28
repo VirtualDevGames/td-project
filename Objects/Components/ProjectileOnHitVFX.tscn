@@ -53,9 +53,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hic20")
-}, {
-"duration": 1.0,
-"texture": null
 }],
 "loop": false,
 "name": &"CloudExplosion",
@@ -81,9 +78,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_65bvo")
-}, {
-"duration": 1.0,
-"texture": null
 }],
 "loop": false,
 "name": &"RingExplosion",
@@ -93,6 +87,6 @@ animations = [{
 [node name="ProjectileOnHitVFX" type="AnimatedSprite2D"]
 position = Vector2(-32, -32)
 sprite_frames = SubResource("SpriteFrames_jbp1l")
-animation = &"CloudExplosion"
+animation = &"RingExplosion"
 centered = false
 script = ExtResource("2_d7cf8")

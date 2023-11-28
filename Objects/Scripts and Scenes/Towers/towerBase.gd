@@ -4,6 +4,11 @@ class_name TowerBase
 
 var projectile = preload("res://Objects/Scripts and Scenes/Projectiles/ProjectileBase.tscn")
 
+var projectileBase = preload("res://Objects/Scripts and Scenes/Projectiles/ProjectileBase.tscn")
+var exploding2 = preload("res://Objects/Scripts and Scenes/Projectiles/Exploding2.tscn")
+
+var effectExplosive = preload("res://Objects/Scripts and Scenes/Projectiles/Effect_Explosive.tscn")
+
 var isFollowingTarget = false
 var targetObject : EnemyBase
 var enemiesArray : Array[EnemyBase]
@@ -26,14 +31,14 @@ var projectileSpeed : float = 0
 @onready var crosshair = $crosshair
 
 
-
-enum TowerTypes	{
+enum TowerTypes{
 	Blue = 0,
 	Red = 1,
 }
 
 func _ready():
-	towerType = TowerTypes.Red
+	towerType = TowerTypes.Blue
+	projectile = projectileBase
 	SetTowerData(towerData[towerType])
 
 func _physics_process(_delta):
@@ -64,6 +69,10 @@ func Shoot() :
 			projectileInstance.speed = projectileSpeed
 			projectileInstance.targetLocation = targetObject.global_position
 			projectileInstance.vel = targetObject.global_position - projectileInstance.global_position 
+			## CURRENT PROJECTILE SHENANIGANS HERE##
+			projectileInstance.onHitProperty = OnHitTypes.Types.Explosive
+			projectileInstance.damage = 0
+			projectileInstance.effectDamage = 1
 			get_parent().add_child(projectileInstance)
 
 # Set Tower Data

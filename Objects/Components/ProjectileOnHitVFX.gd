@@ -8,5 +8,9 @@ func _ready():
 
 func PlayAnimation() :
 	visible = true
-	play(str(projectileBase.onHitType))
+	match projectileBase.onHitType :
+		OnHitTypes.Types.Explosive :
+			play("RingExplosion")
+		OnHitTypes.Types.CloudExplosion :	
+			play("CloudExplosion")
 

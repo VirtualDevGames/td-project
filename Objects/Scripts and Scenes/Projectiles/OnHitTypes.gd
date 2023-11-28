@@ -4,6 +4,6 @@ class_name OnHitTypes
 
 enum Types{
 	None,
-	RingExplosion,
+	Explosive,
 	CloudExplosion,
 }

@@ -2,17 +2,19 @@ extends CharacterBody2D
 
 class_name ProjectileBase
 
-@onready var projectileOnHitVFX : ProjectileOnHitVFX = $ProjectileOnHitVFX
 @onready var sprite : Sprite2D = $Sprite2D
-
 @export var explosionHitbox : CollisionShape2D
 
+var onHitProperty : OnHitTypes.Types = OnHitTypes.Types.None
+@onready var EffectExplosive = preload("res://Objects/Scripts and Scenes/Projectiles/Effect_Explosive.tscn")
+
 var damage : int = 1
+var effectDamage : int = 0
 var speed : float = 1
 var targetLocation : Vector2
 var vel = Vector2(0,0)
 var bulletScale = Vector2(0.8 , 0.8)
-var onHitType : OnHitTypes.Types = OnHitTypes.Types.None
+@export var onHitType : OnHitTypes.Types
 
 var hasOnHitEffect : bool = false
 
@@ -27,25 +29,17 @@ func _on_area_2d_area_entered(area):
 		(area.get_parent() as EnemyBase).TakeDamage(damage)
 		speed = 0
 		sprite.visible = false
-		TriggerOnHit()
+		call_deferred("TriggerOnHit")
 
 func TriggerOnHit() :
-	
-	#Disable base hitboxes
-	$CollisionShape2D.disabled = true
-	$Area2D/CollisionShape2D.disabled = true
-	#Enable on-hit effects
-	explosionHitbox.disabled = false
-	projectileOnHitVFX.PlayAnimation()
-	
-	# Make the explosion hitbox and export ------
-	# Make inheriters of this class as projectiles, make hitboxes for the onhit, and connect them
-	#	to the export
-	# Then remove the match switch case on the function above
-	# make sure the animation works properly and despawn after animation ends
-	# Give onHitType to the projectile through the turret script
-	# Enable explosion hitbox after bullet hits, last as long as animation, 
-	#	despawn everything after
+	match onHitProperty:
+		OnHitTypes.Types.Explosive:
+			var effect : Effect_Base = EffectExplosive.instantiate()
+			add_child(effect)
+			effect.global_position = global_position
+			effect.TriggerEffect()
+			effect.despawnBullet.connect(DespawnBulletAfterEffectAnimation)
+	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 
-func _on_projectile_on_hit_vfx_animation_finished():
-	queue_free()
+func DespawnBulletAfterEffectAnimation() :
+	call_deferred("queue_free")

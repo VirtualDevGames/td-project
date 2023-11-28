@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr78e8a250xba"]
+
+[ext_resource type="PackedScene" uid="uid://c5huxulh1bief" path="res://Objects/Scripts and Scenes/Projectiles/ProjectileBase.tscn" id="1_s7hk4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tw38m"]
+radius = 35.0
+
+[node name="ProjectileBase" node_paths=PackedStringArray("explosionHitbox") instance=ExtResource("1_s7hk4")]
+explosionHitbox = NodePath("Area2D2/CollisionShape2D2")
+onHitType = 1
+
+[node name="ProjectileOnHitVFX" parent="." index="3"]
+frame = 2
+frame_progress = 0.667234
+
+[node name="Area2D2" type="Area2D" parent="." index="4"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2" index="0"]
+shape = SubResource("CircleShape2D_tw38m")
+disabled = true
