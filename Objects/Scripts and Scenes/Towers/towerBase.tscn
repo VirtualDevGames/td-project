@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://d37washb3psk8"]
 
 [ext_resource type="Script" path="res://Objects/Scripts and Scenes/Towers/towerBase.gd" id="1_clt5p"]
-[ext_resource type="Resource" uid="uid://jktcxr6rb0x" path="res://Objects/Scripts and Scenes/Tower Data/Blue.tres" id="2_2oa8n"]
-[ext_resource type="Resource" uid="uid://ds1uywdq76h67" path="res://Objects/Scripts and Scenes/Tower Data/Red.tres" id="3_5puml"]
+[ext_resource type="Resource" uid="uid://jktcxr6rb0x" path="res://Objects/Scripts and Scenes/Towers/Tower Data/Blue.tres" id="2_tgk17"]
+[ext_resource type="Resource" uid="uid://ds1uywdq76h67" path="res://Objects/Scripts and Scenes/Towers/Tower Data/Red.tres" id="3_eau63"]
 [ext_resource type="Texture2D" uid="uid://bf60ks0qukwna" path="res://Resources/Sprites/gunner1_1.png" id="4_eofsm"]
 [ext_resource type="Texture2D" uid="uid://bboy6527x076r" path="res://Resources/Sprites/gunner1_4.png" id="5_p4qin"]
 [ext_resource type="Texture2D" uid="uid://dsjellqapisso" path="res://Resources/Sprites/gunner1_5.png" id="6_4xu3l"]
@@ -64,7 +64,7 @@ animations = [{
 
 [node name="towerBase" type="Node2D"]
 script = ExtResource("1_clt5p")
-towerData = Array[Resource("res://Objects/Scripts and Scenes/Tower Data/TowerData.gd")]([ExtResource("2_2oa8n"), ExtResource("3_5puml")])
+towerData = Array[Resource("res://Objects/Scripts and Scenes/Towers/Tower Data/TowerData.gd")]([ExtResource("2_tgk17"), ExtResource("3_eau63")])
 
 [node name="Range" type="Area2D" parent="."]
 collision_mask = 2

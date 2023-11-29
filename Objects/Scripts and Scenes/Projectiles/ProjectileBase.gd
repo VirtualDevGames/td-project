@@ -22,7 +22,7 @@ func _ready():
 	set_scale(bulletScale)
 
 func _physics_process(delta): 
-	var movement = move_and_collide(vel.normalized() * delta * (speed * 10))
+	move_and_collide(vel.normalized() * delta * (speed * 10))
 
 func _on_area_2d_area_entered(area):
 	if area != null :

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TowerData" load_steps=2 format=3 uid="uid://ds1uywdq76h67"]
 
-[ext_resource type="Script" path="res://Objects/Scripts and Scenes/Tower Data/TowerData.gd" id="1_e2p77"]
+[ext_resource type="Script" path="res://Objects/Scripts and Scenes/Towers/Tower Data/TowerData.gd" id="1_e2p77"]
 
 [resource]
 script = ExtResource("1_e2p77")
@@ -8,4 +8,4 @@ name = "Red"
 cost = 10
 shootingSpeed = 0.4
 projectileSpeed = 100.0
-range = 75.0
+_range = 75.0

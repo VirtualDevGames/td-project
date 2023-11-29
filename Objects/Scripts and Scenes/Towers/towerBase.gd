@@ -25,7 +25,7 @@ var tname : String = ""
 var cost : int = 0
 @onready var shootingTimer :  ShootingTimer = $"Shooting Timer"
 var projectileSpeed : float = 0
-@onready var range : CollisionShape2D = $Range/Range
+@onready var _range : CollisionShape2D = $Range/Range
 
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
 @onready var crosshair = $crosshair
@@ -65,24 +65,24 @@ func Shoot() :
 		if enemiesArray.size() > 0 :
 			anim.play()
 			var projectileInstance : ProjectileBase = projectile.instantiate()
+			get_parent().add_child(projectileInstance)
 			projectileInstance.global_position = $"AnimatedSprite2D/Shoot Location".global_position
 			projectileInstance.speed = projectileSpeed
 			projectileInstance.targetLocation = targetObject.global_position
 			projectileInstance.vel = targetObject.global_position - projectileInstance.global_position 
-			## CURRENT PROJECTILE SHENANIGANS HERE##
+			## CURRENT PROJECTILE SHENANIGANS HERE ##
 			projectileInstance.onHitProperty = OnHitTypes.Types.Explosive
 			projectileInstance.damage = 0
 			projectileInstance.effectDamage = 1
-			get_parent().add_child(projectileInstance)
 
 # Set Tower Data
 func SetTowerData(data : TowerData) :
-	range.shape = range.shape.duplicate()
+	_range.shape = _range.shape.duplicate()
 	tname = data.name
 	cost = data.cost
 	shootingTimer.set_wait_time(data.shootingSpeed)  
 	projectileSpeed = data.projectileSpeed
-	range.shape.radius = data.range
+	_range.shape.radius = data._range
 	anim.animation = data.name
 
 # Follow Mouse

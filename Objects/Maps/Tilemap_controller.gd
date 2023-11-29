@@ -17,18 +17,14 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 			nodeToSpawn = turretNode
-			SpawnTurret(get_global_mouse_position())
+			SpawnTurret(get_local_mouse_position())
+			print(get_local_mouse_position())
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 			SpawnEnemy()
-			#for turrs in get_children() :
-				#if turrs is TowerBase :
-					#print("a")
-					#turrs.queue_free()
-	
 
 func SpawnTurret(_position):
 	var spawnInstance = nodeToSpawn.instantiate()
-	spawnInstance.position = _position
+	spawnInstance.global_position = _position
 	add_child(spawnInstance)
 
 func SpawnEnemy() :
