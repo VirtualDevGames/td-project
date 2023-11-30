@@ -1,0 +1,66 @@
+
+Idea #1 :
+- Normal tower defense
+- Towers have unique projectiles and "abilities" 
+- Towers can be upgraded
+
+Idea #2 :
+- Several types of upgrades can be given to towers      10/10
+- Acquiring towers:
+	- Are there more than one type of tower?
+		- Can be bought whenever (classic)   4/10
+		- Bought at shop end of round        4/10
+	- One type of tower?
+		- Will each tower cost the same?
+		- Will each consequent tower cost more? <^ TBD in balance
+	- Towers are rare and can only be acquired through certain events 10000/10
+		- Breaking down augments to craft towers
+		- Augments that give towers
+- Towers mechanic:
+	- One type of tower: 
+		- Each conseuqent tower costs more
+		- Each tower cost the same but power is divided between all the towers
+			(shooting speed, damage, etc, not range)
+- Acquiring upgrades:
+	- Dropped by monsters through the rounds 2/10
+	- Purchased by merchant end of round     6/10
+	- Purchased through shop whenver         3/10
+- Augments/Items/Permanent Passive Effects:
+	- Acquiring items:
+		- Earned end of every few rounds     8/10
+		- Bought from merchant end of round  4/10
+	- Items have different bonuses           8/10
+	  (example: gundpowder item makes bombs
+	   more effective)
+	- Are items and augments the same thing?
+		- No:
+			- Augments are stronger than items and unique (no stacking)   10/10
+			- Augments are picked end of every few rounds                 10/10
+			- Items are bought from merchant end of round                 10/10
+		- Yes: 
+			- Boring probably                                              2/10
+- Shop:
+	- End of every round. Contains passive items or upgrades to place on towers.  10/10
+	- Separate slots for items and upgrades? that's for balancing
+- Upgrades inventory
+	- Size limit?                 0/10
+	- Can sell to shop           10/10
+	- Drag and drop on towers    10/10
+
+So far:
+	One tower type
+	Towers are rarely acquired:
+		- Paying in upgrades
+		- Augments that give towers
+		- Items that (maybe) give towers
+	Upgrades come through shops end of round
+	Upgrades may be dropped by enemies and placed in inventory
+	Upgrades from inventory may be sold for gold
+	Gold used for buying upgrades or buying new towers
+	Each consequent tower costs more gold (TBD - balancing)
+	End of round shop contains upgrades and items to buy
+	Items are passive bonuses that are weaker and stack
+	Items, augments, and upgrades should combo with each other
+	Make different types of "archetypes" of items/augments/upgades 
+		(i.e. explosive build, fast shoot build, spreadshot etc)
+	Every few rounds, gain augment (strong, deck defining)

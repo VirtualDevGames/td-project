@@ -18,7 +18,6 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 			nodeToSpawn = turretNode
 			SpawnTurret(get_local_mouse_position())
-			print(get_local_mouse_position())
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 			SpawnEnemy()
 

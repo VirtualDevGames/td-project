@@ -1,303 +1,70 @@
-[gd_scene load_steps=7 format=3 uid="uid://wd5o0n16m4qe"]
+[gd_scene load_steps=4 format=3 uid="uid://wd5o0n16m4qe"]
 
-[ext_resource type="Texture2D" uid="uid://cejo6ow77a2tk" path="res://Resources/UI/inventory2.png" id="1_hamyq"]
-[ext_resource type="Theme" uid="uid://cd4le1f47h4vg" path="res://Resources/UI/UITheme.tres" id="2_hs838"]
-[ext_resource type="Texture2D" uid="uid://c5a78wepoj4ya" path="res://Resources/UI/itemframe2.png" id="2_mdr1n"]
-[ext_resource type="Texture2D" uid="uid://bqj8n2tkht3cq" path="res://Resources/UI/itemframe.png" id="3_v08w3"]
+[ext_resource type="Texture2D" uid="uid://8ep0fh7ivjp0" path="res://Resources/UI/inventory3.png" id="1_0iiwf"]
+[ext_resource type="PackedScene" uid="uid://dnimbd6idqvm7" path="res://Objects/Scripts and Scenes/UI/InventoryDraggableItem.tscn" id="3_fme0n"]
+[ext_resource type="Texture2D" uid="uid://ce5p5bwinmp6y" path="res://Resources/UI/diskpocket.png" id="6_pj0qn"]
 
-[sub_resource type="Theme" id="Theme_04mcg"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_oyl30"]
-
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="InventoryUI" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 382.0
+offset_top = 40.0
+offset_right = 382.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 
-[node name="Control" type="Control" parent="Control"]
-anchors_preset = 0
-offset_left = 1104.0
-offset_top = 45.0
-offset_right = 1144.0
-offset_bottom = 85.0
-theme = SubResource("Theme_04mcg")
+[node name="Inventory3" type="Sprite2D" parent="Control"]
+position = Vector2(341.333, 104.333)
+texture = ExtResource("1_0iiwf")
 
-[node name="Inventory" type="Sprite2D" parent="Control/Control"]
-position = Vector2(140, 192.681)
-scale = Vector2(3.15871, 3.15871)
-texture = ExtResource("1_hamyq")
+[node name="Diskpocket" type="Sprite2D" parent="Control"]
+z_index = 1
+position = Vector2(328.333, 50.3333)
+texture = ExtResource("6_pj0qn")
 
-[node name="Inventory2" type="Sprite2D" parent="Control/Control"]
-visible = false
-scale = Vector2(3.15871, 3.15871)
-texture = ExtResource("2_mdr1n")
-centered = false
+[node name="Diskpocket2" type="Sprite2D" parent="Control"]
+z_index = 1
+position = Vector2(363.333, 50.3333)
+texture = ExtResource("6_pj0qn")
 
-[node name="button1_1" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 926.0
-offset_top = 134.4
-offset_right = 966.0
-offset_bottom = 174.4
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
+[node name="Diskpocket3" type="Sprite2D" parent="Control"]
+z_index = 1
+position = Vector2(328.333, 87.3333)
+texture = ExtResource("6_pj0qn")
 
-[node name="button1_2" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 999.0
-offset_top = 134.4
-offset_right = 1039.0
-offset_bottom = 174.4
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
+[node name="Diskpocket4" type="Sprite2D" parent="Control"]
+z_index = 1
+position = Vector2(363.333, 87.3333)
+texture = ExtResource("6_pj0qn")
 
-[node name="button1_3" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 1071.0
-offset_top = 134.4
-offset_right = 1111.0
-offset_bottom = 174.4
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
+[node name="Diskpocket5" type="Sprite2D" parent="Control"]
+z_index = 1
+position = Vector2(328.333, 124.333)
+texture = ExtResource("6_pj0qn")
 
-[node name="button2_1" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 926.0
-offset_top = 207.405
-offset_right = 966.0
-offset_bottom = 247.405
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
+[node name="Diskpocket6" type="Sprite2D" parent="Control"]
+z_index = 1
+position = Vector2(363.333, 124.333)
+texture = ExtResource("6_pj0qn")
 
-[node name="button2_2" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 999.0
-offset_top = 207.405
-offset_right = 1039.0
-offset_bottom = 247.405
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
+[node name="Diskpocket7" type="Sprite2D" parent="Control"]
+z_index = 1
+position = Vector2(328.333, 161.333)
+texture = ExtResource("6_pj0qn")
 
-[node name="button2_3" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 1071.0
-offset_top = 207.405
-offset_right = 1111.0
-offset_bottom = 247.405
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
+[node name="Diskpocket8" type="Sprite2D" parent="Control"]
+z_index = 1
+position = Vector2(363.333, 161.333)
+texture = ExtResource("6_pj0qn")
 
-[node name="button3_1" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 926.0
-offset_top = 280.0
-offset_right = 966.0
-offset_bottom = 320.0
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
+[node name="InventoryDraggableItem" parent="Control" instance=ExtResource("3_fme0n")]
+position = Vector2(328.333, 41.3333)
 
-[node name="button3_2" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 999.0
-offset_top = 280.0
-offset_right = 1039.0
-offset_bottom = 320.0
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
-
-[node name="button3_3" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 1071.0
-offset_top = 280.0
-offset_right = 1111.0
-offset_bottom = 320.0
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
-
-[node name="button4_1" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 926.0
-offset_top = 353.0
-offset_right = 966.0
-offset_bottom = 393.0
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
-
-[node name="button4_2" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 999.0
-offset_top = 353.0
-offset_right = 1039.0
-offset_bottom = 393.0
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
-
-[node name="button4_3" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 1071.0
-offset_top = 353.0
-offset_right = 1111.0
-offset_bottom = 393.0
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
-
-[node name="button5_1" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 926.0
-offset_top = 425.0
-offset_right = 966.0
-offset_bottom = 465.0
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
-
-[node name="button5_2" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 999.0
-offset_top = 426.0
-offset_right = 1039.0
-offset_bottom = 466.0
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
-
-[node name="button5_3" type="TextureButton" parent="Control/Control"]
-visible = false
-layout_mode = 0
-offset_left = 1071.0
-offset_top = 425.0
-offset_right = 1111.0
-offset_bottom = 465.0
-scale = Vector2(1.57492, 1.57492)
-theme = ExtResource("2_hs838")
-texture_normal = ExtResource("3_v08w3")
-texture_pressed = ExtResource("3_v08w3")
-texture_hover = ExtResource("3_v08w3")
-texture_disabled = ExtResource("3_v08w3")
-texture_focused = ExtResource("3_v08w3")
-stretch_mode = 4
-
-[node name="shopbutton" type="Button" parent="Control/Control"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 11.6814
-offset_right = 9.0
-offset_bottom = 19.6814
-scale = Vector2(5.0466, 11.099)
-theme_override_colors/font_color = Color(0, 0, 0, 0)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
-button_mask = 0
-icon = SubResource("ImageTexture_oyl30")
-flat = true
+[node name="InventoryDraggableItem2" parent="Control" instance=ExtResource("3_fme0n")]
+position = Vector2(363, 78.6667)
