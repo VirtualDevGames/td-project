@@ -19,13 +19,14 @@ var animcounter : float
 var canShoot : bool = true
 
 # Tower Data Variables
-@export var towerData : Array[TowerData]
+@export var towerData : TowerData
 var towerType : int = 0
 var tname : String = ""
 var cost : int = 0
 @onready var shootingTimer :  ShootingTimer = $"Shooting Timer"
 var projectileSpeed : float = 0
 @onready var _range : CollisionShape2D = $Range/Range
+@onready var draggable_item_collision : CollisionShape2D = $"Draggable Item Collision/CollisionShape2D"
 
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
 @onready var crosshair = $crosshair
@@ -37,10 +38,11 @@ enum TowerTypes{
 }
 
 func _ready():
+	#_range.disabled = true
 	towerType = TowerTypes.Blue
 	projectile = projectileBase
-	SetTowerData(towerData[towerType])
-
+	SetTowerData(towerData)
+	
 func _physics_process(_delta):
 	if enemiesArray.size() > 0 :
 		# Check for all enemies in range for furthest enemy
@@ -63,27 +65,31 @@ func Shoot() :
 	if canShoot :
 		canShoot = false
 		if enemiesArray.size() > 0 :
+			var target_location = targetObject.global_position
 			anim.play()
 			var projectileInstance : ProjectileBase = projectile.instantiate()
 			get_parent().add_child(projectileInstance)
 			projectileInstance.global_position = $"AnimatedSprite2D/Shoot Location".global_position
-			projectileInstance.speed = projectileSpeed
-			projectileInstance.targetLocation = targetObject.global_position
-			projectileInstance.vel = targetObject.global_position - projectileInstance.global_position 
+			projectileInstance.speed = towerData.projectileSpeed
+			projectileInstance.targetLocation = target_location
+			projectileInstance.vel = target_location - projectileInstance.global_position 
 			## CURRENT PROJECTILE SHENANIGANS HERE ##
-			projectileInstance.onHitProperty = OnHitTypes.Types.Explosive
-			projectileInstance.damage = 0
-			projectileInstance.effectDamage = 1
+			projectileInstance.onHitProperty = towerData.on_hit_type
+			projectileInstance.damage = towerData.damage
+			projectileInstance.on_hit_damage = towerData.on_hit_damage
 
 # Set Tower Data
 func SetTowerData(data : TowerData) :
+	towerData = data
 	_range.shape = _range.shape.duplicate()
-	tname = data.name
-	cost = data.cost
-	shootingTimer.set_wait_time(data.shootingSpeed)  
-	projectileSpeed = data.projectileSpeed
-	_range.shape.radius = data._range
+	tname = data.name #@export var name : String = ""
+	cost = cost + data.cost #@export var cost : int = 0
+	shootingTimer.set_wait_time(data.shootingSpeed)  #@export var shootingSpeed : float = 0.0
+	_range.shape.radius = data._range #@export var _range : float = 0.0
 	anim.animation = data.name
+
+#@warning_ignore("unused_private_class_variable")
+
 
 # Follow Mouse
 func _on_area_2d_mouse_entered():
@@ -93,14 +99,14 @@ func _on_area_2d_mouse_exited():
 	pass #isFollowingTarget = false
 
 #Enemy Enter/Exit Range
-func _on_area_2d_area_entered(area):
+func _on_range_area_entered(area):
 	enemiesArray.push_front(area.get_parent()) #enemiesArray.push_front(area.get_parent())
 	targetObject = area.get_parent()
 	isFollowingTarget = true
 	if shootingTimer.is_stopped() :
 		shootingTimer.start()
-	
-func _on_area_2d_area_exited(area):
+
+func _on_range_area_exited(area):
 	enemiesArray.erase(area.get_parent())
 	isFollowingTarget = false
 
@@ -113,3 +119,7 @@ func _on_timer_timeout():
 		shootingTimer.stop()
 	else :
 		Shoot()
+
+func _on_draggable_item_collision_area_entered(_area):
+	pass#print(_area.name)
+

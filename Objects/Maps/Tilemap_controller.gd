@@ -10,14 +10,21 @@ var nodeToSpawn = preload("res://Objects/Scripts and Scenes/Towers/towerBase.tsc
 
 var path = preload("res://Objects/Scripts and Scenes/Paths/Path1.tscn")
 
+var can_place_turrets = true
+
 @onready var enemySpawnPoint = $EnemySpawnPoint
 
+func _process(_delta):
+	if Input.is_action_just_pressed("Spacebar") :
+		can_place_turrets = !can_place_turrets
+		
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 			nodeToSpawn = turretNode
-			SpawnTurret(get_local_mouse_position())
+			if can_place_turrets:
+				SpawnTurret(get_local_mouse_position())
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 			SpawnEnemy()
 

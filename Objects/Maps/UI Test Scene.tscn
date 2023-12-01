@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2nqga60eqr8v"]
+[gd_scene load_steps=7 format=3 uid="uid://c2nqga60eqr8v"]
 
 [ext_resource type="PackedScene" uid="uid://cs4iq7iqahnd1" path="res://Objects/Scripts and Scenes/UI/Inventory.tscn" id="1_b6x7e"]
 [ext_resource type="Texture2D" uid="uid://8ep0fh7ivjp0" path="res://Resources/UI/inventory3.png" id="2_gpggb"]
 [ext_resource type="Texture2D" uid="uid://b1kru42ahenrp" path="res://Resources/Sprites/Floppy Disks/Bomb Disk.png" id="3_3wefj"]
 [ext_resource type="Texture2D" uid="uid://ce5p5bwinmp6y" path="res://Resources/UI/diskpocket.png" id="4_vuj6c"]
 [ext_resource type="PackedScene" uid="uid://dnimbd6idqvm7" path="res://Objects/Scripts and Scenes/UI/InventoryDraggableItem.tscn" id="5_133ym"]
+[ext_resource type="Resource" uid="uid://jktcxr6rb0x" path="res://Objects/Scripts and Scenes/Towers/Tower Data/Blue.tres" id="6_5tf2o"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -36,3 +37,4 @@ texture = ExtResource("4_vuj6c")
 
 [node name="InventoryDraggableItem" parent="." instance=ExtResource("5_133ym")]
 position = Vector2(327, 37.5)
+tower_data = ExtResource("6_5tf2o")

@@ -3,7 +3,7 @@ class_name Effect_Base
 
 @export var animation : AnimatedSprite2D
 @export var effectHitBox : CollisionShape2D
-@onready var effectDamage = (get_parent() as ProjectileBase).effectDamage
+@onready var effectDamage = (get_parent() as ProjectileBase).on_hit_damage
 
 var oneFrameTimer = 0
 

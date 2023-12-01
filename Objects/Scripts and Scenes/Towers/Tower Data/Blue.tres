@@ -6,6 +6,9 @@
 script = ExtResource("1_34rrh")
 name = "Blue"
 cost = 5
+damage = 1
+on_hit_type = 0
+on_hit_damage = 0
 shootingSpeed = 0.8
 projectileSpeed = 100.0
 _range = 40.0

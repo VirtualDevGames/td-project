@@ -1,8 +1,12 @@
 extends Node2D
 
+class_name InventoryDraggableItem
+
+@export var tower_data : TowerData
 @onready var sprite = $Sprite2D
 @onready var timer = $Timer
 @onready var hover_timer = $"Hover Timer"
+@onready var area : Area2D = $Sprite2D/Area2D
 
 signal picked_up_changed(picked)
 signal mouse_released
@@ -12,7 +16,9 @@ var raised:bool = false
 @onready var original_location:Vector2 = global_position
 @onready var raise_position = Vector2(global_position.x, global_position.y - 13)
 
-var varAlph = 0.0
+var upwards_peek_varAlph = 0.0
+var scale_small_pickup_varAlph = 0.0
+var move_to_mouse_varAlph = 0.0
 
 var picked_up:bool = false :
 	set(b):
@@ -21,20 +27,51 @@ var picked_up:bool = false :
 		picked_up = b
 		picked_up_changed.emit(b)
 
-func _process(delta):
+func _process(_delta):
 	if picked_up:
-		global_position = get_global_mouse_position()
+		global_position = lerp(global_position, get_global_mouse_position(), move_to_mouse_varAlph)
+		move_to_mouse_varAlph = AlphaVarScaling(move_to_mouse_varAlph, 0.5, 0.1)
 	
 	if Input.is_action_just_released("M1") : 
+		if picked_up && area.get_overlapping_areas().size() > 0 :
+			var closest_tower = CheckForAreasInsideAreas()
+			if closest_tower :
+				for _area in area.get_overlapping_areas():
+					if _area.get_parent() is TowerBase :
+						if (_area.get_parent() as TowerBase).towerData != tower_data :
+							if (_area.global_position - global_position) \
+							< (closest_tower.global_position - global_position) :
+								closest_tower = _area
+				(closest_tower.get_parent() as TowerBase).SetTowerData(tower_data)
 		mouse_released.emit()
+		scale = Vector2(1.35,1.35)
+		scale_small_pickup_varAlph = 0
+	
+	if picked_up :
+		scale = lerp(scale, Vector2(.5,.5), scale_small_pickup_varAlph)
+		scale_small_pickup_varAlph = AlphaVarScaling(scale_small_pickup_varAlph, 0.5, 0.01)
 	
 	if raised && !picked_up:
-		global_position.y = lerp(original_location.y, raise_position.y, varAlph)
-		if varAlph < .5:
-			varAlph = varAlph + .01
+		global_position.y = lerp(original_location.y, raise_position.y, upwards_peek_varAlph)
+		upwards_peek_varAlph = AlphaVarScaling(upwards_peek_varAlph, 0.5, 0.01)
+
+func CheckForAreasInsideAreas():
+	for areas in area.get_overlapping_areas() :
+		if areas.get_parent() is TowerBase :
+			return areas
+	return null
+
+func AlphaVarScaling(varAlph : float, varAlph_limit : float, speed : float) :
+	if varAlph < varAlph_limit:
+			return (varAlph + speed)
+	return varAlph
+
+func GetOriginalPosition(pos : Vector2) :
+	original_location = pos
+	raise_position = Vector2(pos.x, pos.y - 13)
 
 func _on_mouse_region_pressed():
-	varAlph = 0
+	#upwards_peek_varAlph = 0
 	if not picked_up:
 		can_hover = false
 		timer.start()
@@ -46,7 +83,7 @@ func _on_timer_timeout():
 		can_hover = false
 		z_index = 2
 		await mouse_released
-		hover_timer.start()
+		can_hover = true#hover_timer.start()
 		picked_up = false
 		z_index = 0
 
@@ -57,17 +94,17 @@ func _on_mouse_released():
 		can_hover = false
 		z_index = 2
 		await mouse_released
-		hover_timer.start()
+		can_hover = true#hover_timer.start()
 		picked_up = false
 		z_index = 0
 
 func _on_mouse_region_mouse_entered():
-	varAlph = 0
+	upwards_peek_varAlph = 0
 	if can_hover:
 		raised = true
 
 func _on_mouse_region_mouse_exited():
-	varAlph = 0
+	upwards_peek_varAlph = 0
 	if raised && !picked_up :
 		global_position = original_location
 	raised = false

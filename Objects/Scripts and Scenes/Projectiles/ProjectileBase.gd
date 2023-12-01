@@ -3,13 +3,12 @@ extends CharacterBody2D
 class_name ProjectileBase
 
 @onready var sprite : Sprite2D = $Sprite2D
-@export var explosionHitbox : CollisionShape2D
 
 var onHitProperty : OnHitTypes.Types = OnHitTypes.Types.None
 @onready var EffectExplosive = preload("res://Objects/Scripts and Scenes/Projectiles/Effect_Explosive.tscn")
 
 var damage : int = 1
-var effectDamage : int = 0
+var on_hit_damage : int = 0
 var speed : float = 1
 var targetLocation : Vector2
 var vel = Vector2(0,0)
@@ -39,6 +38,8 @@ func TriggerOnHit() :
 			effect.global_position = global_position
 			effect.TriggerEffect()
 			effect.despawnBullet.connect(DespawnBulletAfterEffectAnimation)
+		_:
+			call_deferred("queue_free")
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 
 func DespawnBulletAfterEffectAnimation() :
