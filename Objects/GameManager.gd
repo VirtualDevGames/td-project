@@ -19,7 +19,7 @@ func _process(_delta):
 		SpawnItem()
 
 func _ready():
-	GetUISlots()
+	floppy_disk_spawn_points = $Control/Slots.get_children() 
 
 #var held_item : Inventory
 func LoadLevel(levelName : String) :
@@ -45,9 +45,3 @@ func SpawnItem():
 	
 func GetUISlots():
 	floppy_disk_spawn_points = $Control/Slots.get_children() 
-	for p in floppy_disk_spawn_points:
-		print(p.name + " " + str(p.global_position))
-	#InventoryUI.get_child()
-	#for node in InventoryUI.get_children() :
-		#if node.name.contains("Slot")
-		

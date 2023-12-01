@@ -7,6 +7,7 @@ class_name TowerData
 @export var damage : int = 0
 @export var on_hit_type : OnHitTypes.Types
 @export var on_hit_damage : int = 0
+@export var amount_of_shots : int = 1
 @export var shootingSpeed : float = 0.0
 @export var projectileSpeed : float = 0.0
 @warning_ignore("unused_private_class_variable")

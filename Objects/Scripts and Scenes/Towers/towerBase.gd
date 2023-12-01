@@ -65,18 +65,33 @@ func Shoot() :
 	if canShoot :
 		canShoot = false
 		if enemiesArray.size() > 0 :
-			var target_location = targetObject.global_position
-			anim.play()
-			var projectileInstance : ProjectileBase = projectile.instantiate()
-			get_parent().add_child(projectileInstance)
-			projectileInstance.global_position = $"AnimatedSprite2D/Shoot Location".global_position
-			projectileInstance.speed = towerData.projectileSpeed
-			projectileInstance.targetLocation = target_location
-			projectileInstance.vel = target_location - projectileInstance.global_position 
-			## CURRENT PROJECTILE SHENANIGANS HERE ##
-			projectileInstance.onHitProperty = towerData.on_hit_type
-			projectileInstance.damage = towerData.damage
-			projectileInstance.on_hit_damage = towerData.on_hit_damage
+			var space_between_shots = 0
+			var current_spread = 0
+			if towerData.amount_of_shots != 1 :
+				space_between_shots = (60 / towerData.amount_of_shots - 1)
+				current_spread = -(space_between_shots * floor(towerData.amount_of_shots/2))
+			for n in towerData.amount_of_shots :
+				var target_location = targetObject.global_position
+				anim.play()
+				var projectileInstance : ProjectileBase = projectile.instantiate()
+				get_parent().add_child(projectileInstance)
+				projectileInstance.global_position = $"AnimatedSprite2D/Shoot Location".global_position
+				projectileInstance.speed = towerData.projectileSpeed
+				projectileInstance.targetLocation = target_location
+				projectileInstance.vel = \
+					Vector2(target_location - projectileInstance.global_position).rotated(deg_to_rad(current_spread))
+				## CURRENT PROJECTILE SHENANIGANS HERE ##
+				projectileInstance.onHitProperty = towerData.on_hit_type
+				projectileInstance.damage = towerData.damage
+				projectileInstance.on_hit_damage = towerData.on_hit_damage
+				print(current_spread)
+				current_spread = current_spread + (60/(towerData.amount_of_shots))
+
+func ShootHelper(num_of_shots : int, target_location : Vector2):
+	var space_between_shots = (60 / num_of_shots - 1)
+	var current_spread = -(space_between_shots * 2)
+	for n in num_of_shots :
+		pass#Vector2(target_location - projectileInstance.global_position).rotated(current_spread)
 
 # Set Tower Data
 func SetTowerData(data : TowerData) :

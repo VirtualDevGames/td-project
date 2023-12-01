@@ -78,7 +78,6 @@ position = Vector2(363.333, 161.333)
 texture = ExtResource("7_ufr7l")
 
 [node name="Slots" type="Node2D" parent="Control"]
-scale = Vector2(1, 1)
 
 [node name="Slot1" type="Node2D" parent="Control/Slots"]
 position = Vector2(328.333, 41)

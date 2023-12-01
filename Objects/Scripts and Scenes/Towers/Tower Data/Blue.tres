@@ -9,6 +9,7 @@ cost = 5
 damage = 1
 on_hit_type = 0
 on_hit_damage = 0
+amount_of_shots = 1
 shootingSpeed = 0.8
 projectileSpeed = 100.0
 _range = 40.0
