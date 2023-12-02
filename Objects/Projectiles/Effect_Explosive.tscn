@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://s6tyep5d180o"]
+
+[ext_resource type="Script" path="res://Objects/Projectiles/Effect_Base.gd" id="1_htdwl"]
+[ext_resource type="Texture2D" uid="uid://ddcyv66ikjetk" path="res://Resources/Sprites/VFX/Retro Impact Effect Pack 2 A.png" id="2_dvdvh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x55av"]
+radius = 36.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1p1c"]
+atlas = ExtResource("2_dvdvh")
+region = Rect2(0, 832, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ord1d"]
+atlas = ExtResource("2_dvdvh")
+region = Rect2(64, 832, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff63a"]
+atlas = ExtResource("2_dvdvh")
+region = Rect2(128, 832, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f21ac"]
+atlas = ExtResource("2_dvdvh")
+region = Rect2(192, 832, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mh33d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1p1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ord1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff63a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f21ac")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Effect_Explosive" type="Node2D" node_paths=PackedStringArray("animation", "effectHitBox")]
+script = ExtResource("1_htdwl")
+animation = NodePath("Animation_RingExplosion")
+effectHitBox = NodePath("Area2D/CollisionShape2D")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_x55av")
+
+[node name="Animation_RingExplosion" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mh33d")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwypc3mcul2br"]
+[gd_scene load_steps=6 format=3 uid="uid://dwypc3mcul2br"]
 
 [ext_resource type="Script" path="res://Objects/GameManager.gd" id="1_rkbs2"]
-[ext_resource type="PackedScene" uid="uid://wd5o0n16m4qe" path="res://Objects/InventoryUI.tscn" id="2_8drcv"]
 [ext_resource type="PackedScene" uid="uid://bwm1ptjyglpem" path="res://Objects/Maps/Map1.tscn" id="2_oquj4"]
-[ext_resource type="PackedScene" uid="uid://dnimbd6idqvm7" path="res://Objects/Scripts and Scenes/UI/InventoryDraggableItem.tscn" id="4_kbrwr"]
+[ext_resource type="PackedScene" uid="uid://dnimbd6idqvm7" path="res://Objects/Inventory Items/InventoryDraggableItem.tscn" id="4_kbrwr"]
 [ext_resource type="Texture2D" uid="uid://8ep0fh7ivjp0" path="res://Resources/UI/inventory3.png" id="5_gob70"]
 [ext_resource type="Texture2D" uid="uid://ce5p5bwinmp6y" path="res://Resources/UI/diskpocket.png" id="7_ufr7l"]
 
@@ -14,15 +13,9 @@ script = ExtResource("1_rkbs2")
 [node name="Map1" parent="." instance=ExtResource("2_oquj4")]
 position = Vector2(0, 0)
 
-[node name="UI Inventory" parent="." instance=ExtResource("2_8drcv")]
-layer = 0
-visible = false
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(94, 85)
 zoom = Vector2(1.8, 1.8)
-
-[node name="Node2D" type="Node2D" parent="."]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

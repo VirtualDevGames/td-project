@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjfsek1fbnm28"]
+
+[ext_resource type="PackedScene" uid="uid://dnimbd6idqvm7" path="res://Objects/Inventory Items/InventoryDraggableItem.tscn" id="1_nghya"]
+[ext_resource type="Texture2D" uid="uid://bhodgr8j6lhdw" path="res://Resources/Sprites/Floppy Disks/Range Up Disk.png" id="2_0jhc0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6y47n"]
+resource_local_to_scene = true
+size = Vector2(23.7037, 22.963)
+
+[node name="InventoryDraggableItem" instance=ExtResource("1_nghya")]
+upgrade_property = 9
+upgrade_value = 20.0
+_sprite = ExtResource("2_0jhc0")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_0jhc0")
+
+[node name="CollisionShape2D" parent="Sprite2D/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_6y47n")

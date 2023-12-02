@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4humx1ipnynv"]
+
+[ext_resource type="PackedScene" uid="uid://dnimbd6idqvm7" path="res://Objects/Inventory Items/InventoryDraggableItem.tscn" id="1_8ixbu"]
+[ext_resource type="Texture2D" uid="uid://0pha55uxsfje" path="res://Resources/Sprites/Floppy Disks/Gear Disk.png" id="2_df46l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l6i4"]
+resource_local_to_scene = true
+size = Vector2(23.7037, 22.963)
+
+[node name="InventoryDraggableItem" instance=ExtResource("1_8ixbu")]
+tower_data = null
+upgrade_property = 7
+upgrade_value = -0.3
+_sprite = ExtResource("2_df46l")
+
+[node name="CollisionShape2D" parent="Sprite2D/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_0l6i4")

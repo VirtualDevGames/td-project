@@ -13,7 +13,6 @@ config_version=5
 config/name="td"
 run/main_scene="res://Objects/MainScene.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
 
 [display]
 
@@ -76,6 +75,7 @@ Spacebar={
 2d_physics/layer_3="Bullets"
 2d_physics/layer_4="Inventory Draggable Item"
 2d_physics/layer_5="Tower Upgrade"
+2d_physics/layer_6="World Boundary"
 
 [physics]
 

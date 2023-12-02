@@ -1,13 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://cjsor3biigads"]
 
-[ext_resource type="PackedScene" uid="uid://bah15ruqrecg5" path="res://Objects/Parallax Backgrounds/MainMenu_ParallaxSky.tscn" id="1_2b2bf"]
-[ext_resource type="Theme" uid="uid://r2x7huk7hw6x" path="res://Resources/UI/Themes/MainMenuTheme.tres" id="1_b2umw"]
-[ext_resource type="Script" path="res://Objects/Scripts and Scenes/Menus/MainMenu.gd" id="2_l4mk8"]
-[ext_resource type="FontFile" uid="uid://bxvnmdh50e4qp" path="res://Resources/UI/Fonts/NicoPaint-Regular.ttf" id="2_x878f"]
-[ext_resource type="Texture2D" uid="uid://bygmbnb88u6dw" path="res://Resources/UI/Assets/Buttons/Yellow/Long Pressed/yellow_pressed_long.png" id="4_8vf7k"]
+[ext_resource type="Theme" uid="uid://r2x7huk7hw6x" path="res://Resources/UI/Themes/MainMenuTheme.tres" id="1_dd27o"]
+[ext_resource type="Script" path="res://Objects/Menus/MainMenu.gd" id="2_mbj3v"]
+[ext_resource type="PackedScene" uid="uid://bah15ruqrecg5" path="res://Objects/Parallax Backgrounds/MainMenu_ParallaxSky.tscn" id="3_17hcx"]
+[ext_resource type="FontFile" uid="uid://bxvnmdh50e4qp" path="res://Resources/UI/Fonts/NicoPaint-Regular.ttf" id="4_w5m1m"]
+[ext_resource type="Texture2D" uid="uid://bygmbnb88u6dw" path="res://Resources/UI/Assets/Buttons/Yellow/Long Pressed/yellow_pressed_long.png" id="5_e7r75"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bw85m"]
-texture = ExtResource("4_8vf7k")
+texture = ExtResource("5_e7r75")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -19,10 +19,10 @@ grow_vertical = 2
 pivot_offset = Vector2(576, 324)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_b2umw")
-script = ExtResource("2_l4mk8")
+theme = ExtResource("1_dd27o")
+script = ExtResource("2_mbj3v")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("1_2b2bf")]
+[node name="ParallaxBackground" parent="." instance=ExtResource("3_17hcx")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -44,7 +44,7 @@ alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_x878f")
+theme_override_fonts/font = ExtResource("4_w5m1m")
 theme_override_font_sizes/font_size = 32
 text = "[ Goat game of all time  ]"
 horizontal_alignment = 1

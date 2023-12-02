@@ -3,12 +3,12 @@ extends TileMap
 const main_layer = 0
 const main_atlas_id = 0
 
-var turretNode = preload("res://Objects/Scripts and Scenes/Towers/towerBase.tscn")
-var enemyNode = preload("res://Objects/Scripts and Scenes/Enemies/enemyBase.tscn")
+var turretNode = preload("res://Objects/Towers/towerBase.tscn")
+var enemyNode = preload("res://Objects/Enemies/enemyBase.tscn")
 
-var nodeToSpawn = preload("res://Objects/Scripts and Scenes/Towers/towerBase.tscn")
+var nodeToSpawn = preload("res://Objects/Towers/towerBase.tscn")
 
-var path = preload("res://Objects/Scripts and Scenes/Paths/Path1.tscn")
+var path = preload("res://Objects/Paths/Path1.tscn")
 
 var can_place_turrets = true
 

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://v1m7ec6o8bjr"]
+
+[ext_resource type="PackedScene" uid="uid://dnimbd6idqvm7" path="res://Objects/Inventory Items/InventoryDraggableItem.tscn" id="1_bs4l8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahfgn"]
+resource_local_to_scene = true
+size = Vector2(23.7037, 22.963)
+
+[node name="InventoryDraggableItem" instance=ExtResource("1_bs4l8")]
+upgrade_property = 6
+upgrade_value = 1.0
+on_hit_type = 2
+
+[node name="CollisionShape2D" parent="Sprite2D/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_ahfgn")
