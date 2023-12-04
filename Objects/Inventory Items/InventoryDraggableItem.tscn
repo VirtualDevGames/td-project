@@ -12,7 +12,9 @@ size = Vector2(23.7037, 22.963)
 scale = Vector2(1.35, 1.35)
 script = ExtResource("1_tti5h")
 tower_data = ExtResource("2_y5a6a")
-upgrade_property = 2
+upgrade_property = 5
+upgrade_value = 1.0
+on_hit_type = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_4wed6")

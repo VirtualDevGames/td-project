@@ -3,7 +3,7 @@ class_name Effect_Base
 
 @export var animation : AnimatedSprite2D
 @export var effectHitBox : CollisionShape2D
-@onready var effectDamage = (get_parent() as ProjectileBase).on_hit_damage
+var effectDamage : int = 0
 
 var oneFrameTimer = 0
 
@@ -11,7 +11,6 @@ signal despawnBullet
 
 func _physics_process(_delta):
 	OneFrameTimer()
-
 
 func _ready():
 	animation.animation_finished.connect(DespawnSelf)

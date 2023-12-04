@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bla5c6hx0o14j"]
+
+[ext_resource type="PackedScene" uid="uid://dnimbd6idqvm7" path="res://Objects/Inventory Items/InventoryDraggableItem.tscn" id="1_yk06c"]
+[ext_resource type="Texture2D" uid="uid://b1kru42ahenrp" path="res://Resources/Sprites/Floppy Disks/Bomb Disk.png" id="2_rfn7m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbcko"]
+resource_local_to_scene = true
+size = Vector2(23.7037, 22.963)
+
+[node name="InventoryDraggableItem" instance=ExtResource("1_yk06c")]
+upgrade_property = 3
+upgrade_value = 1.0
+on_hit_type = 1
+_sprite = ExtResource("2_rfn7m")
+
+[node name="CollisionShape2D" parent="Sprite2D/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_qbcko")

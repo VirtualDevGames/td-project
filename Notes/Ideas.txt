@@ -46,6 +46,10 @@ Idea #2 :
 	- Size limit?                 0/10
 	- Can sell to shop           10/10
 	- Drag and drop on towers    10/10
+	
+enemies: different types react to different upgrades
+
+
 
 So far:
 	One tower type
@@ -64,3 +68,88 @@ So far:
 	Make different types of "archetypes" of items/augments/upgades 
 		(i.e. explosive build, fast shoot build, spreadshot etc)
 	Every few rounds, gain augment (strong, deck defining)
+
+
+
+
+
+
+
+Combine materials to craft upgrades
+👩🏻‍🍳🍳 - Quota based
+Don't lose hp on enemies reaching the end
+Need to reach a quota every x rounds - quotas increase
+Allows for strategizing against a specific "type" of enemy
+* figure out how rounds will work
+* figure out incentive on killing multiple things
+* many mechanics that diversify decisions across games
+
+
+
+tower mechanics - 
+
+explosive
+slowing
+freezing
+electric
+corrosive
+radiation
+
+range
+attack speed
+attack damage
+piercing
+spread shots
+projectile speed
+knockback
+
+ranged damage?
+melee damage?
+elemental damage?
+
+
+
+
+
+ok but fr THIS TIME
+Different types of towers - classic td
+Towers are bought at the end of each round - vamp survivors
+Items are obtained end of round and mid round (?) 
+Enemy path not like classic td, think of a more complex/involved way
+ - idea 1: protect center "nexus"
+Can move towers sometimes (tbd)
+Items and augments affect different things of the towers
+ - ex 1: augment a affects attack speed of all electric type towers
+Limited amount of towers - amount tbd (balancing)
+Towers can hold items (?)
+
+Tower mechanics:
+	Elements
+	Archetypes
+	Can move enemies
+	
+Placeable support item mechanics:
+	Placed items passively affect enemies (debuffs, dps, etc) and towers (buffs)
+	Place breakable walls
+
+Passive support item mechanics:
+	Buffs for specific stats
+	Buffs for tower archetypes
+	Stackable
+
+Building mechanics:
+	Place blocks for enemy pathing
+	Path must connect to nexus
+	Limited amount means working with what you have
+	Earn more path blocks as game goes on = delaying enemies longer
+
+Augments:
+	Change playstyle
+	Change deckbuilding
+
+Enemy mechanics:
+	Scaling
+	Different behaviors
+	
+
+

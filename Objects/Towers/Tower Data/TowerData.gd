@@ -8,6 +8,7 @@ enum Properties {
 	damage,
 	on_hit_type,
 	on_hit_damage,
+	explosive,
 	amount_of_shots,
 	pierces,
 	shootingSpeed,
@@ -19,6 +20,7 @@ enum Properties {
 @export var damage : int = 0
 @export var on_hit_type : OnHitTypes.Types
 @export var on_hit_damage : int = 0
+@export var explosive : int = 0
 @export var amount_of_shots : float = 1.0
 @export var pierces : int = 0
 @export var shootingSpeed : float = 0.0

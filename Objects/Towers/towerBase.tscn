@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d37washb3psk8"]
+[gd_scene load_steps=22 format=3 uid="uid://d37washb3psk8"]
 
 [ext_resource type="Script" path="res://Objects/Towers/towerBase.gd" id="1_1hgr3"]
 [ext_resource type="Resource" uid="uid://jktcxr6rb0x" path="res://Objects/Towers/Tower Data/Blue.tres" id="2_nr8ny"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c6fgphthr5x8c" path="res://Resources/Sprites/Towers/gunner1_3.png" id="6_565io"]
 [ext_resource type="Texture2D" uid="uid://34yj4rlr8dvs" path="res://Resources/Sprites/Towers/gunner1_2.png" id="7_c8lwh"]
 [ext_resource type="Texture2D" uid="uid://cp34oltbr4ocn" path="res://Resources/Sprites/Towers/gunner2_1.png" id="8_5s7hg"]
+[ext_resource type="Texture2D" uid="uid://dxcldrf43gf8n" path="res://Resources/Sprites/Enemies/Pixel Mobs/EarthSmallA.png" id="8_fnyyg"]
 [ext_resource type="Texture2D" uid="uid://jah2ndmkf6w8" path="res://Resources/Sprites/Towers/gunner2_4.png" id="9_nwcgc"]
 [ext_resource type="Texture2D" uid="uid://dtqbw56bgwq8n" path="res://Resources/Sprites/Towers/gunner2_5.png" id="10_fnp1l"]
 [ext_resource type="Texture2D" uid="uid://cn70312ml5pd8" path="res://Resources/Sprites/Towers/gunner2_3.png" id="11_1c1y2"]
@@ -15,10 +16,26 @@
 [ext_resource type="Texture2D" uid="uid://bwcy3sdal5lxw" path="res://Resources/Sprites/Enemies/crosshair.png" id="13_nvo6j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wibvd"]
-size = Vector2(18, 12)
+size = Vector2(13, 14)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wc7r5"]
 radius = 50.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpuhe"]
+atlas = ExtResource("8_fnyyg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elr8t"]
+atlas = ExtResource("8_fnyyg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clpg1"]
+atlas = ExtResource("8_fnyyg")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02bxy"]
+atlas = ExtResource("8_fnyyg")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_64erv"]
 animations = [{
@@ -41,6 +58,23 @@ animations = [{
 "loop": false,
 "name": &"Blue",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpuhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elr8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clpg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02bxy")
+}],
+"loop": true,
+"name": &"Earth Small A",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -73,7 +107,7 @@ collision_layer = 16
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Item Collision"]
-position = Vector2(9, 11)
+position = Vector2(9.5, 12)
 shape = SubResource("RectangleShape2D_wibvd")
 
 [node name="Range" type="Area2D" parent="."]
@@ -83,10 +117,9 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_wc7r5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, 0)
-rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_64erv")
-animation = &"Red"
+animation = &"Earth Small A"
+frame_progress = 0.643744
 
 [node name="Shoot Location" type="Marker2D" parent="AnimatedSprite2D"]
 visible = false

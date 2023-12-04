@@ -15,10 +15,14 @@ var inventory_draggable_item = preload("res://Objects/Inventory Items/InventoryD
 var item_spreadshot = preload("res://Objects/Inventory Items/SpreadShot_InventoryDraggableItem.tscn")
 var item_rangeup = preload("res://Objects/Inventory Items/RangeUp_InventoryDraggableItem.tscn")
 var item_attackSpeedUp = preload("res://Objects/Inventory Items/AttackSpeed_InventoryDraggableItem.tscn")
+var item_explosive = preload("res://Objects/Inventory Items/InventoryDraggableItem.tscn")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Spacebar"):
-		SpawnItem()
+		SpawnItem(item_spreadshot)
+		SpawnItem(item_rangeup)
+		SpawnItem(item_attackSpeedUp)
+		SpawnItem(item_explosive)
 
 func _ready():
 	floppy_disk_spawn_points = $Control/Slots.get_children() 
@@ -37,9 +41,9 @@ func UnloadLevel() :
 		currentLevel.queue_free()
 	currentLevel = null
 
-func SpawnItem():
+func SpawnItem(item_to_spawn : PackedScene):
 	if amount_of_items < amount_of_items_limit :
-		var floppy_instance = item_attackSpeedUp.instantiate()
+		var floppy_instance = item_to_spawn.instantiate()
 		add_child(floppy_instance)
 		#SetItemUpgradeParameters(floppy_instance, TowerData.Properties.damage, 1)
 		floppy_instance.global_position = floppy_disk_spawn_points[amount_of_items].global_position

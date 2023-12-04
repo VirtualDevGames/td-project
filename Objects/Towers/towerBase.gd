@@ -80,11 +80,14 @@ func Shoot() :
 				projectileInstance.onHitProperty = towerData.on_hit_type
 				projectileInstance.damage = towerData.damage
 				projectileInstance.on_hit_damage = towerData.on_hit_damage
+				projectileInstance.hits_left = towerData.pierces
 				current_spread = current_spread + space_between_shots
 
 # Set Tower Data
 func SetTowerData(data : TowerData) :
 	towerData = data
+	if data.explosive > 0 :
+		data.on_hit_type = OnHitTypes.Types.Explosive
 	_range.shape = _range.shape.duplicate()
 	tname = data.name
 	cost = cost + data.cost
