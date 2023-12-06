@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://1scg7evsyyiw"]
+
+[ext_resource type="PackedScene" uid="uid://d37washb3psk8" path="res://Objects/Towers/towerBase.tscn" id="1_abjgk"]
+[ext_resource type="Resource" uid="uid://b5fyjnu24bpw1" path="res://Objects/Towers/Tower Data/Rocklee_td.tres" id="2_pn2uy"]
+[ext_resource type="SpriteFrames" uid="uid://534lwtpqofes" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Rocklee_anim.tres" id="3_pkaej"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdmdq"]
+resource_local_to_scene = true
+radius = 50.0
+
+[node name="Rocklee Tower" instance=ExtResource("1_abjgk")]
+towerData = ExtResource("2_pn2uy")
+
+[node name="Range" parent="Range" index="0"]
+shape = SubResource("CircleShape2D_qdmdq")
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = ExtResource("3_pkaej")
+animation = &"Earth Small A"
+frame_progress = 0.195597

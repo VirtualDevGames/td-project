@@ -1,0 +1,40 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://534lwtpqofes"]
+
+[ext_resource type="Texture2D" uid="uid://dxcldrf43gf8n" path="res://Resources/Sprites/Enemies/Pixel Mobs/EarthSmallA.png" id="6_68y37"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpuhe"]
+atlas = ExtResource("6_68y37")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elr8t"]
+atlas = ExtResource("6_68y37")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clpg1"]
+atlas = ExtResource("6_68y37")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02bxy"]
+atlas = ExtResource("6_68y37")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpuhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elr8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clpg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02bxy")
+}],
+"loop": true,
+"name": &"Earth Small A",
+"speed": 5.0
+}]

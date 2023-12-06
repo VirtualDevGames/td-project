@@ -35,7 +35,7 @@ func _on_area_2d_area_entered(area):
 		(area.get_parent() as EnemyBase).TakeDamage(damage)
 		TriggerOnHit(area) 
 
-func TriggerOnHit(area : Area2D) :
+func TriggerOnHit(_area : Area2D) :
 	match onHitProperty:
 		OnHitTypes.Types.Explosive:
 			var effect : Effect_Base = EffectExplosive.instantiate()

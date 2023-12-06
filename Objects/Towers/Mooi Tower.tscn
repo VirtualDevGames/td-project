@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://2elwt5yohrb"]
+
+[ext_resource type="PackedScene" uid="uid://d37washb3psk8" path="res://Objects/Towers/towerBase.tscn" id="1_ogo4j"]
+[ext_resource type="Resource" uid="uid://cv0s8thbvo1nb" path="res://Objects/Towers/Tower Data/Mooi_td.tres" id="2_epld8"]
+[ext_resource type="SpriteFrames" uid="uid://cw61oimr55l4h" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Mooi_anim.tres" id="3_06d6y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_umcmf"]
+resource_local_to_scene = true
+radius = 50.0
+
+[node name="Mooi Tower" instance=ExtResource("1_ogo4j")]
+towerData = ExtResource("2_epld8")
+
+[node name="Range" parent="Range" index="0"]
+shape = SubResource("CircleShape2D_umcmf")
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = ExtResource("3_06d6y")
+animation = &"Dwarf B"
+frame_progress = 0.0907444

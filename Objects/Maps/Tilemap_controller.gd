@@ -24,7 +24,7 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 			nodeToSpawn = turretNode
 			if can_place_turrets:
-				SpawnTurret(get_local_mouse_position())
+				pass#SpawnTurret(get_local_mouse_position())
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 			SpawnEnemy()
 

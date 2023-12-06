@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8x25vruff6yj"]
+
+[ext_resource type="Script" path="res://Objects/UI/TraitLabel.gd" id="1_6yx1t"]
+[ext_resource type="Texture2D" uid="uid://badytuuktfjhj" path="res://Resources/Sprites/Traits/BronzeFrame.png" id="2_tllki"]
+[ext_resource type="Texture2D" uid="uid://drk2vbik80ewn" path="res://Resources/Sprites/Traits/Rock.png" id="3_mcp24"]
+[ext_resource type="Theme" uid="uid://4da3p0qe4dsm" path="res://Resources/UI/GameUITheme.tres" id="4_gsqut"]
+
+[node name="TraitLabel" type="HBoxContainer" node_paths=PackedStringArray("trait_icon", "frame_icon", "text")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6yx1t")
+trait_icon = NodePath("MarginContainer/Trait Icon")
+frame_icon = NodePath("MarginContainer/Frame Icon")
+text = NodePath("MarginContainer2/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Frame Icon" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_tllki")
+stretch_mode = 2
+
+[node name="Trait Icon" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_mcp24")
+stretch_mode = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="Label" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+theme = ExtResource("4_gsqut")
+text = "Trait (1)"

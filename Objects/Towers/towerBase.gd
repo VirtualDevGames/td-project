@@ -62,10 +62,10 @@ func Shoot() :
 	if canShoot :
 		canShoot = false
 		if enemiesArray.size() > 0 :
-			var space_between_shots = 0
+			var space_between_shots = 0.0
 			var current_spread = 0
 			if towerData.amount_of_shots > 1 :
-				space_between_shots = (60 / (towerData.amount_of_shots - 1))
+				space_between_shots = (60.0 / (towerData.amount_of_shots - 1.0))
 				current_spread = -30#(space_between_shots * floor(towerData.amount_of_shots/2))
 			for n in towerData.amount_of_shots :
 				var target_location = targetObject.global_position
@@ -93,7 +93,6 @@ func SetTowerData(data : TowerData) :
 	cost = cost + data.cost
 	shootingTimer.set_wait_time(data.shootingSpeed)
 	_range.shape.radius = data._range
-	anim.animation = data.name
 
 func UpgradeProperty(property_name : String, value : float) :
 	towerData.set(property_name, towerData.get(property_name) + value)

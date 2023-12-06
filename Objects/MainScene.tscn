@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwypc3mcul2br"]
+[gd_scene load_steps=9 format=3 uid="uid://dwypc3mcul2br"]
 
 [ext_resource type="Script" path="res://Objects/GameManager.gd" id="1_rkbs2"]
 [ext_resource type="PackedScene" uid="uid://bwm1ptjyglpem" path="res://Objects/Maps/Map1.tscn" id="2_oquj4"]
-[ext_resource type="PackedScene" uid="uid://dnimbd6idqvm7" path="res://Objects/Inventory Items/InventoryDraggableItem.tscn" id="4_kbrwr"]
+[ext_resource type="Texture2D" uid="uid://dj6aatnf7pmy6" path="res://Resources/UI/sidebar1.png" id="4_xf1s1"]
 [ext_resource type="Texture2D" uid="uid://8ep0fh7ivjp0" path="res://Resources/UI/inventory3.png" id="5_gob70"]
+[ext_resource type="PackedScene" uid="uid://cp0bnp5aiudaw" path="res://Objects/UI/GameUI.tscn" id="6_ytod7"]
+[ext_resource type="PackedScene" uid="uid://cjvmssu6g2kpp" path="res://Objects/Towers/Cappo Tower.tscn" id="7_ci5pp"]
 [ext_resource type="Texture2D" uid="uid://ce5p5bwinmp6y" path="res://Resources/UI/diskpocket.png" id="7_ufr7l"]
+[ext_resource type="PackedScene" uid="uid://du2sk0sn7uo83" path="res://Objects/Towers/Binki Tower.tscn" id="8_1h5vt"]
 
 [node name="Main Scene - Game Manager" type="Node2D"]
 position = Vector2(-353, -239)
@@ -27,45 +30,58 @@ offset_bottom = -10.0
 scale = Vector2(1.4, 1.4)
 
 [node name="Inventory3" type="Sprite2D" parent="Control"]
+visible = false
 position = Vector2(341.333, 104.333)
 texture = ExtResource("5_gob70")
 
+[node name="Inventory4" type="Sprite2D" parent="Control"]
+position = Vector2(346.429, 97.1429)
+texture = ExtResource("4_xf1s1")
+
 [node name="Diskpocket" type="Sprite2D" parent="Control"]
+visible = false
 z_index = 2
 position = Vector2(328.333, 50.3333)
 texture = ExtResource("7_ufr7l")
 
 [node name="Diskpocket2" type="Sprite2D" parent="Control"]
+visible = false
 z_index = 1
 position = Vector2(363.333, 50.3333)
 texture = ExtResource("7_ufr7l")
 
 [node name="Diskpocket3" type="Sprite2D" parent="Control"]
+visible = false
 z_index = 1
 position = Vector2(328.333, 87.3333)
 texture = ExtResource("7_ufr7l")
 
 [node name="Diskpocket4" type="Sprite2D" parent="Control"]
+visible = false
 z_index = 1
 position = Vector2(363.333, 87.3333)
 texture = ExtResource("7_ufr7l")
 
 [node name="Diskpocket5" type="Sprite2D" parent="Control"]
+visible = false
 z_index = 1
 position = Vector2(328.333, 124.333)
 texture = ExtResource("7_ufr7l")
 
 [node name="Diskpocket6" type="Sprite2D" parent="Control"]
+visible = false
 z_index = 1
 position = Vector2(363.333, 124.333)
 texture = ExtResource("7_ufr7l")
 
 [node name="Diskpocket7" type="Sprite2D" parent="Control"]
+visible = false
 z_index = 1
 position = Vector2(328.333, 161.333)
 texture = ExtResource("7_ufr7l")
 
 [node name="Diskpocket8" type="Sprite2D" parent="Control"]
+visible = false
 z_index = 1
 position = Vector2(363.333, 161.333)
 texture = ExtResource("7_ufr7l")
@@ -104,6 +120,11 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(363.5, 152)
 scale = Vector2(0.5, 0.5)
 
-[node name="InventoryDraggableItem" parent="." instance=ExtResource("4_kbrwr")]
-z_index = 1
-position = Vector2(337.5, -60)
+[node name="GameUI" parent="." node_paths=PackedStringArray("gameManager") instance=ExtResource("6_ytod7")]
+gameManager = NodePath("..")
+
+[node name="Cappo Tower" parent="." instance=ExtResource("7_ci5pp")]
+position = Vector2(-82, 42)
+
+[node name="Binki Tower" parent="." instance=ExtResource("8_1h5vt")]
+position = Vector2(-31, 43)

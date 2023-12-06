@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp0bnp5aiudaw"]
+
+[ext_resource type="Script" path="res://Objects/UI/GameUI.gd" id="1_meqi3"]
+[ext_resource type="Theme" uid="uid://4da3p0qe4dsm" path="res://Resources/UI/GameUITheme.tres" id="2_pfv40"]
+[ext_resource type="PackedScene" uid="uid://c8x25vruff6yj" path="res://Objects/UI/TraitLabel.tscn" id="3_3gfnp"]
+
+[node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("labels_array")]
+script = ExtResource("1_meqi3")
+labels_array = [NodePath("Control/MarginContainer/VBoxContainer/TraitLabel0"), NodePath("Control/MarginContainer/VBoxContainer/TraitLabel1"), NodePath("Control/MarginContainer/VBoxContainer/TraitLabel2"), NodePath("Control/MarginContainer/VBoxContainer/TraitLabel3"), NodePath("Control/MarginContainer/VBoxContainer/TraitLabel4"), NodePath("Control/MarginContainer/VBoxContainer/TraitLabel5"), NodePath("Control/MarginContainer/VBoxContainer/TraitLabel6"), NodePath("Control/MarginContainer/VBoxContainer/TraitLabel7"), NodePath("Control/MarginContainer/VBoxContainer/TraitLabel8"), NodePath("Control/MarginContainer/VBoxContainer/TraitLabel9")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_pfv40")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="TraitLabel0" parent="Control/MarginContainer/VBoxContainer" instance=ExtResource("3_3gfnp")]
+layout_mode = 2
+
+[node name="TraitLabel1" parent="Control/MarginContainer/VBoxContainer" instance=ExtResource("3_3gfnp")]
+layout_mode = 2
+
+[node name="TraitLabel2" parent="Control/MarginContainer/VBoxContainer" instance=ExtResource("3_3gfnp")]
+layout_mode = 2
+
+[node name="TraitLabel3" parent="Control/MarginContainer/VBoxContainer" instance=ExtResource("3_3gfnp")]
+layout_mode = 2
+
+[node name="TraitLabel4" parent="Control/MarginContainer/VBoxContainer" instance=ExtResource("3_3gfnp")]
+layout_mode = 2
+
+[node name="TraitLabel5" parent="Control/MarginContainer/VBoxContainer" instance=ExtResource("3_3gfnp")]
+layout_mode = 2
+
+[node name="TraitLabel6" parent="Control/MarginContainer/VBoxContainer" node_paths=PackedStringArray("trait_icon", "frame_icon", "text") instance=ExtResource("3_3gfnp")]
+layout_mode = 2
+trait_icon = NodePath("../TraitLabel5/MarginContainer/Trait Icon")
+frame_icon = NodePath("../TraitLabel5/MarginContainer/Frame Icon")
+text = NodePath("../TraitLabel5/MarginContainer2/Label")
+
+[node name="TraitLabel7" parent="Control/MarginContainer/VBoxContainer" node_paths=PackedStringArray("trait_icon", "frame_icon", "text") instance=ExtResource("3_3gfnp")]
+layout_mode = 2
+trait_icon = NodePath("../TraitLabel5/MarginContainer/Trait Icon")
+frame_icon = NodePath("../TraitLabel5/MarginContainer/Frame Icon")
+text = NodePath("../TraitLabel5/MarginContainer2/Label")
+
+[node name="TraitLabel8" parent="Control/MarginContainer/VBoxContainer" node_paths=PackedStringArray("trait_icon", "frame_icon", "text") instance=ExtResource("3_3gfnp")]
+layout_mode = 2
+trait_icon = NodePath("../TraitLabel5/MarginContainer/Trait Icon")
+frame_icon = NodePath("../TraitLabel5/MarginContainer/Frame Icon")
+text = NodePath("../TraitLabel5/MarginContainer2/Label")
+
+[node name="TraitLabel9" parent="Control/MarginContainer/VBoxContainer" node_paths=PackedStringArray("trait_icon", "frame_icon", "text") instance=ExtResource("3_3gfnp")]
+layout_mode = 2
+trait_icon = NodePath("../TraitLabel5/MarginContainer/Trait Icon")
+frame_icon = NodePath("../TraitLabel5/MarginContainer/Frame Icon")
+text = NodePath("../TraitLabel5/MarginContainer2/Label")

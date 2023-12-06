@@ -1,0 +1,40 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cw61oimr55l4h"]
+
+[ext_resource type="Texture2D" uid="uid://deinla8eb2oix" path="res://Resources/Sprites/Enemies/Pixel Mobs/DwarfB.png" id="1_bookb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu4er"]
+atlas = ExtResource("1_bookb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym8ch"]
+atlas = ExtResource("1_bookb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq7ob"]
+atlas = ExtResource("1_bookb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugkkh"]
+atlas = ExtResource("1_bookb")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu4er")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym8ch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq7ob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugkkh")
+}],
+"loop": true,
+"name": &"Dwarf B",
+"speed": 5.0
+}]

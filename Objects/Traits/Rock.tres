@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TraitResource" load_steps=3 format=3 uid="uid://bjkphed0vurqp"]
+
+[ext_resource type="Texture2D" uid="uid://drk2vbik80ewn" path="res://Resources/Sprites/Traits/Rock.png" id="1_cgm4r"]
+[ext_resource type="Script" path="res://Objects/Traits/TraitResource.gd" id="1_wq5mx"]
+
+[resource]
+script = ExtResource("1_wq5mx")
+name_ = "Rock"
+trait_type = 0
+amount = 0
+tier_cuttoffs = Array[int]([2, 4, 6])
+icon = ExtResource("1_cgm4r")

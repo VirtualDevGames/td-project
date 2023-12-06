@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://du2sk0sn7uo83"]
+
+[ext_resource type="PackedScene" uid="uid://d37washb3psk8" path="res://Objects/Towers/towerBase.tscn" id="1_gtymo"]
+[ext_resource type="Resource" uid="uid://b68dvqui0tkd0" path="res://Objects/Towers/Tower Data/Binki_td.tres" id="2_5tvkh"]
+[ext_resource type="SpriteFrames" uid="uid://d231h6w67vy48" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Binki_anim.tres" id="3_l8sbf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t4um7"]
+resource_local_to_scene = true
+radius = 50.0
+
+[node name="Binki Tower" instance=ExtResource("1_gtymo")]
+towerData = ExtResource("2_5tvkh")
+
+[node name="Range" parent="Range" index="0"]
+shape = SubResource("CircleShape2D_t4um7")
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = ExtResource("3_l8sbf")
+animation = &"Slime Square C"
+frame = 1
+frame_progress = 0.666344

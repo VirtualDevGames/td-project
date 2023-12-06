@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://4da3p0qe4dsm"]
+
+[ext_resource type="FontFile" uid="uid://bxvnmdh50e4qp" path="res://Resources/UI/Fonts/NicoPaint-Regular.ttf" id="1_uirki"]
+
+[sub_resource type="FontVariation" id="FontVariation_rsxgt"]
+base_font = ExtResource("1_uirki")
+spacing_bottom = 20
+
+[resource]
+default_font = ExtResource("1_uirki")
+/fonts/Variation = SubResource("FontVariation_rsxgt")

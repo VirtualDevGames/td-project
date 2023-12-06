@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TraitResource" load_steps=2 format=3 uid="uid://dw2eg7g16dgv6"]
+
+[ext_resource type="Script" path="res://Objects/Traits/TraitResource.gd" id="1_5kebe"]
+
+[resource]
+script = ExtResource("1_5kebe")
+name_ = "Mystic"
+trait_type = 1
+amount = 0
+tier_cuttoffs = Array[int]([2, 4, 6])

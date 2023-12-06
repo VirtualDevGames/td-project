@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjvmssu6g2kpp"]
+
+[ext_resource type="PackedScene" uid="uid://d37washb3psk8" path="res://Objects/Towers/towerBase.tscn" id="1_35uuu"]
+[ext_resource type="Resource" uid="uid://p2ignidqtfxo" path="res://Objects/Towers/Tower Data/Cappo_td.tres" id="2_tri54"]
+[ext_resource type="SpriteFrames" uid="uid://bs87qcttwag3o" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Cappo Tower.tres" id="3_b8jfn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_soy8i"]
+resource_local_to_scene = true
+radius = 50.0
+
+[node name="Cappo Tower" instance=ExtResource("1_35uuu")]
+towerData = ExtResource("2_tri54")
+
+[node name="Range" parent="Range" index="0"]
+shape = SubResource("CircleShape2D_soy8i")
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = ExtResource("3_b8jfn")
+animation = &"DwarfA"
+frame_progress = 0.988099

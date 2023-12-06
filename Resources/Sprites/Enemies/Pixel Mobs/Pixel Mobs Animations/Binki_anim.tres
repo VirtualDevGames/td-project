@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://d231h6w67vy48"]
+
+[ext_resource type="Texture2D" uid="uid://cqbkol2g7plnb" path="res://Resources/Sprites/Enemies/Pixel Mobs/SlimeSquareC.png" id="12_mpvbh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_281n4"]
+atlas = ExtResource("12_mpvbh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqp0b"]
+atlas = ExtResource("12_mpvbh")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_281n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqp0b")
+}],
+"loop": true,
+"name": &"Slime Square C",
+"speed": 2.0
+}]
