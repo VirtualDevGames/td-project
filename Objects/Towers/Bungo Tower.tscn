@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://blgy11xhos5jv"]
+
+[ext_resource type="PackedScene" uid="uid://d37washb3psk8" path="res://Objects/Towers/towerBase.tscn" id="1_veola"]
+[ext_resource type="Texture2D" uid="uid://c1jn4nynxvsjy" path="res://Resources/Sprites/Enemies/Pixel Mobs/BallA.png" id="2_7wpvd"]
+[ext_resource type="Resource" uid="uid://bssemwy8c4i1u" path="res://Objects/Towers/Tower Data/Bungo_td.tres" id="2_p4cmi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_03n0l"]
+resource_local_to_scene = true
+radius = 50.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6f6s"]
+atlas = ExtResource("2_7wpvd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evkhh"]
+atlas = ExtResource("2_7wpvd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec3dq"]
+atlas = ExtResource("2_7wpvd")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggu16"]
+atlas = ExtResource("2_7wpvd")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rk2f"]
+atlas = ExtResource("2_7wpvd")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4q6a"]
+atlas = ExtResource("2_7wpvd")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_76cw0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6f6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evkhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec3dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggu16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rk2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4q6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec3dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggu16")
+}],
+"loop": true,
+"name": &"BallA",
+"speed": 5.0
+}]
+
+[node name="towerBase" instance=ExtResource("1_veola")]
+towerData = ExtResource("2_p4cmi")
+
+[node name="Range" parent="Range" index="0"]
+shape = SubResource("CircleShape2D_03n0l")
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_76cw0")
+animation = &"BallA"
+frame_progress = 0.900355

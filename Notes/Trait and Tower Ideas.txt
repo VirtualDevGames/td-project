@@ -1,0 +1,19 @@
+
+Towers:
+
+
+
+
+
+Traits:
+
+
+
+
+
+Undecided:
+- % Max HP damage on-hit
+- Burn dot
+- Slow on-hit
+- Explosion
+- Piercing bullets

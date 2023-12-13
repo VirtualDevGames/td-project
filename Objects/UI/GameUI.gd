@@ -12,9 +12,11 @@ var score = 0:
 func _ready():
 	UiSignals.update_traits_column.connect(UpdateTraitsColumn)
 
+
 func UpdateTraitsColumn():
 	var last_checked = 0
 	for i in gameManager.traits.size() :
+		var test = gameManager.traits[i].amount
 		if gameManager.traits[i].amount > 0 :
 			labels_array[i]._trait = gameManager.traits[i]
 			labels_array[i].SetVisible(true)
@@ -26,4 +28,3 @@ func UpdateTraitsColumn():
 	for i in range(last_checked, labels_array.size()):
 		if !labels_array[i]._trait:
 			labels_array[i].SetVisible(false)
-	

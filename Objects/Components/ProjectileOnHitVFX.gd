@@ -11,6 +11,3 @@ func PlayAnimation() :
 	match projectileBase.onHitType :
 		OnHitTypes.Types.Explosive :
 			play("RingExplosion")
-		OnHitTypes.Types.CloudExplosion :	
-			play("CloudExplosion")
-

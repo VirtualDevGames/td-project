@@ -7,6 +7,6 @@
 script = ExtResource("1_pqyfj")
 name_ = "Reroll"
 trait_type = 1
-amount = 1
+amount = 2
 tier_cuttoffs = Array[int]([2, 4, 6])
 icon = ExtResource("1_ex2fm")

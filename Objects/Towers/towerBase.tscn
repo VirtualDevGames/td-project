@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d37washb3psk8"]
+[gd_scene load_steps=6 format=3 uid="uid://d37washb3psk8"]
 
 [ext_resource type="Script" path="res://Objects/Towers/towerBase.gd" id="1_1hgr3"]
 [ext_resource type="Texture2D" uid="uid://bwcy3sdal5lxw" path="res://Resources/Sprites/Enemies/crosshair.png" id="13_nvo6j"]
@@ -10,6 +10,9 @@ size = Vector2(17, 17)
 resource_local_to_scene = true
 radius = 50.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5hg32"]
+radius = 8.0
+
 [node name="towerBase" type="Node2D"]
 script = ExtResource("1_1hgr3")
 
@@ -18,7 +21,6 @@ collision_layer = 16
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Item Collision"]
-position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_wibvd")
 
 [node name="Range" type="Area2D" parent="."]
@@ -26,6 +28,11 @@ collision_mask = 2
 
 [node name="Range" type="CollisionShape2D" parent="Range"]
 shape = SubResource("CircleShape2D_wc7r5")
+
+[node name="Tower Placement Overlap" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower Placement Overlap"]
+shape = SubResource("CircleShape2D_5hg32")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 animation = &""

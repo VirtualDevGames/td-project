@@ -38,7 +38,7 @@ func _ready():
 	#_range.disabled = true
 	towerType = TowerTypes.Blue
 	projectile = projectileBase
-	SetTowerData(towerData.duplicate())
+	#SetTowerData(towerData.duplicate())
 	
 func _physics_process(_delta):
 	if enemiesArray.size() > 0 :
@@ -49,7 +49,7 @@ func _physics_process(_delta):
 			if (checking.lifeTime > targetObject.lifeTime) :
 				targetObject = checking
 		# If has target, follow it
-		TurnToLookAt(targetObject.get_parent().global_position)
+		#TurnToLookAt(targetObject.get_parent().global_position)
 		crosshair.global_position = targetObject.get_parent().global_position
 		if(targetObject != null) :
 			Shoot()
@@ -129,5 +129,4 @@ func _on_timer_timeout():
 
 func _on_draggable_item_collision_area_entered(_area):
 	pass#print(_area.name)
-
 

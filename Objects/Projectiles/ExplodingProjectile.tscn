@@ -7,11 +7,10 @@ script/source = "extends ProjectileBase
 [sub_resource type="CircleShape2D" id="CircleShape2D_0gxnj"]
 radius = 36.0139
 
-[node name="ExplodingProjectile" type="CharacterBody2D" node_paths=PackedStringArray("explosionHitbox")]
+[node name="ExplodingProjectile" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 2
 script = SubResource("GDScript_mcm8w")
-explosionHitbox = NodePath("Area2D/CollisionShape2D")
 onHitType = 2
 
 [node name="Area2D" type="Area2D" parent="."]

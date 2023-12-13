@@ -6,5 +6,5 @@
 script = ExtResource("1_corgs")
 name_ = "Swift"
 trait_type = 1
-amount = 5
+amount = 0
 tier_cuttoffs = Array[int]([2, 4, 6])

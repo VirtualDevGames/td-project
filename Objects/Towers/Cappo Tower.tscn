@@ -14,7 +14,7 @@ towerData = ExtResource("2_tri54")
 [node name="Range" parent="Range" index="0"]
 shape = SubResource("CircleShape2D_soy8i")
 
-[node name="AnimatedSprite2D" parent="." index="2"]
+[node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = ExtResource("3_b8jfn")
 animation = &"DwarfA"
-frame_progress = 0.988099
+frame_progress = 0.931366

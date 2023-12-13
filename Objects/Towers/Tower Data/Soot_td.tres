@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TowerData" load_steps=2 format=3 uid="uid://b5x0keof1dajy"]
+
+[ext_resource type="Script" path="res://Objects/Towers/Tower Data/TowerData.gd" id="1_1bnw0"]
+
+[resource]
+script = ExtResource("1_1bnw0")
+name = "Soot"
+class_trait = 0
+oddity_trait = 0
+oddity_2_trait = 0
+cost = 1
+damage = 1
+on_hit_type = 0
+on_hit_damage = 0
+explosive = 0
+amount_of_shots = 1
+pierces = 0
+shootingSpeed = 10.0
+projectileSpeed = 100.0
+_range = 50.0

@@ -14,7 +14,7 @@ towerData = ExtResource("2_pn2uy")
 [node name="Range" parent="Range" index="0"]
 shape = SubResource("CircleShape2D_qdmdq")
 
-[node name="AnimatedSprite2D" parent="." index="2"]
+[node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = ExtResource("3_pkaej")
 animation = &"Earth Small A"
 frame_progress = 0.195597

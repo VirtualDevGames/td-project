@@ -19,7 +19,7 @@ signal mouse_released
 
 var can_hover:bool = true
 var raised:bool = false
-@onready var original_location:Vector2 = global_position
+@onready var original_location = Vector2(0,0)#global_position
 @onready var raise_position = Vector2(global_position.x, global_position.y - 13)
 @onready var original_scale = scale
 
@@ -34,7 +34,7 @@ func _ready():
 var picked_up:bool = false :
 	set(b):
 		if not b:
-			global_position = original_location
+			position = original_location #global_position = original_location
 		picked_up = b
 		picked_up_changed.emit(b)
 
@@ -118,7 +118,7 @@ func _on_mouse_region_mouse_entered():
 func _on_mouse_region_mouse_exited():
 	upwards_peek_varAlph = 0
 	if raised && !picked_up :
-		global_position = original_location
+		position = Vector2(0,0)# original_location #global_position = original_location
 	raised = false
 
 func _on_hover_timer_timeout():

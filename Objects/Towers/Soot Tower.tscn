@@ -1,0 +1,92 @@
+[gd_scene load_steps=15 format=3 uid="uid://dowmows8w4vda"]
+
+[ext_resource type="PackedScene" uid="uid://d37washb3psk8" path="res://Objects/Towers/towerBase.tscn" id="1_6whbs"]
+[ext_resource type="Resource" uid="uid://b5x0keof1dajy" path="res://Objects/Towers/Tower Data/Soot_td.tres" id="2_pe2bm"]
+[ext_resource type="Texture2D" uid="uid://bfc2hn5oywap8" path="res://Resources/Sprites/Enemies/Pixel Mobs/CloudC.png" id="3_t4q80"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqnjt"]
+resource_local_to_scene = true
+radius = 50.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg1n3"]
+atlas = ExtResource("3_t4q80")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d4ma"]
+atlas = ExtResource("3_t4q80")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c24is"]
+atlas = ExtResource("3_t4q80")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qyl7"]
+atlas = ExtResource("3_t4q80")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i886o"]
+atlas = ExtResource("3_t4q80")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jico8"]
+atlas = ExtResource("3_t4q80")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg8ve"]
+atlas = ExtResource("3_t4q80")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sypsn"]
+atlas = ExtResource("3_t4q80")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmvra"]
+atlas = ExtResource("3_t4q80")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dujqe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg1n3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d4ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c24is")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qyl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i886o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jico8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yg8ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sypsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmvra")
+}],
+"loop": true,
+"name": &"CloudC",
+"speed": 5.0
+}]
+
+[node name="towerBase" instance=ExtResource("1_6whbs")]
+towerData = ExtResource("2_pe2bm")
+
+[node name="Range" parent="Range" index="0"]
+shape = SubResource("CircleShape2D_dqnjt")
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_dujqe")
+animation = &"CloudC"
+frame = 2
+frame_progress = 0.67798

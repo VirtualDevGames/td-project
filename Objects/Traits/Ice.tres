@@ -6,5 +6,5 @@
 script = ExtResource("1_tnsb4")
 name_ = "Ice"
 trait_type = 0
-amount = 2
+amount = 0
 tier_cuttoffs = Array[int]([2, 4, 6])

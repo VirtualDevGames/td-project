@@ -1,1 +1,33 @@
-DOING: labels functionality
+Bug: check explosion effect looping one frame after ending
+
+TODO: pop-up UI with turrets in inventory
+- Can use currently set inventory just slide it in and out
+- Turrets drag and drop
+
+TODO 2: New towers
+- Populate the project with new towers
+- All towers have traits
+- Start thinking about a rarity / cost system while working on them
+- Think of tiers of them: common (weak), uncommon (less weak), rare (strong), epic (very strong) # names of tiers change for originality probably
+
+Towers idea: every tower shoots normal for a while, then when max mana (think tft) they shoot or create a strong effect that sets them apart
+from each other
+(Watch for scope creep)
+(Only create a few of these at first please, focus on getting a playable demo out first)
+
+TODO 2.1: Traits system
+- Update traits when towers are placed
+- Check for traits of current towers placed (of course)
+- Find a way to organize the towers under one node for easier searching
+
+TODO 3: shop system
+- Make a shop UI
+- Set random towers to pop up every time shop is opened
+- Give player debugged gold and subtract gold when item purchased
+- Purchased item removed from shop and sent to player inventory
+
+TODO 4: Augment and item system
+- Pick one to do first
+- Don't worry about balancing, just make sure effects work for now
+
+
