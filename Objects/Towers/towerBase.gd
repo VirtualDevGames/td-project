@@ -6,6 +6,9 @@ var projectile = preload("res://Objects/Projectiles/ProjectileBase.tscn")
 
 var projectileBase = preload("res://Objects/Projectiles/ProjectileBase.tscn")
 
+var dice_object = preload("res://Objects/Dice/DiceRoller.tscn")
+@export var dice_spawn_location : Node2D
+
 var isFollowingTarget = false
 var targetObject : EnemyBase
 var enemiesArray : Array[EnemyBase]
@@ -35,11 +38,17 @@ enum TowerTypes{
 }
 
 func _ready():
+	var dice_instance = dice_object.instantiate()
+	dice_spawn_location.add_child(dice_instance)
+	var test = (dice_instance as DiceRoller).RollDice()
 	#_range.disabled = true
 	towerType = TowerTypes.Blue
 	projectile = projectileBase
 	#SetTowerData(towerData.duplicate())
-	
+
+func process(_delta):
+	pass
+
 func _physics_process(_delta):
 	if enemiesArray.size() > 0 :
 		# Check for all enemies in range for furthest enemy
@@ -97,6 +106,10 @@ func SetTowerData(data : TowerData) :
 func UpgradeProperty(property_name : String, value : float) :
 	towerData.set(property_name, towerData.get(property_name) + value)
 	SetTowerData(towerData)
+
+@onready var dice_label = $Label
+func RollDice() :
+	pass
 
 # Follow Mouse
 func _on_area_2d_mouse_entered():

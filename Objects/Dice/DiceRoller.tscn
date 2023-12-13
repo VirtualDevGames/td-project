@@ -1,0 +1,113 @@
+[gd_scene load_steps=14 format=3 uid="uid://bymrf3uwof77w"]
+
+[ext_resource type="Script" path="res://Objects/Dice/DiceRoller.gd" id="1_1e0df"]
+[ext_resource type="Texture2D" uid="uid://du3vdhcvtir8p" path="res://Resources/Sprites/Dice/Dice1.png" id="1_gdoi6"]
+[ext_resource type="Texture2D" uid="uid://i72au1owq4qb" path="res://Resources/Sprites/Dice/DiceResultBG.png" id="3_2jl68"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ofvy"]
+atlas = ExtResource("1_gdoi6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brw2l"]
+atlas = ExtResource("1_gdoi6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv1ly"]
+atlas = ExtResource("1_gdoi6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clatg"]
+atlas = ExtResource("1_gdoi6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45503"]
+atlas = ExtResource("1_gdoi6")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nege"]
+atlas = ExtResource("1_gdoi6")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ae37b"]
+atlas = ExtResource("1_gdoi6")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoj7x"]
+atlas = ExtResource("1_gdoi6")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lplb"]
+atlas = ExtResource("1_gdoi6")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x5uir"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ofvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brw2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qv1ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clatg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45503")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nege")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ae37b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoj7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lplb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qv1ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brw2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ofvy")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="DiceRoller" type="Node2D" node_paths=PackedStringArray("anim", "number_label", "number_bg")]
+script = ExtResource("1_1e0df")
+anim = NodePath("AnimatedSprite2D")
+number_label = NodePath("Number")
+number_bg = NodePath("Number BG")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x5uir")
+frame = 11
+frame_progress = 1.0
+
+[node name="Number BG" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-0.439571, 4.32446)
+scale = Vector2(1.2492, 1.2492)
+texture = ExtResource("3_2jl68")
+
+[node name="Number" type="Label" parent="."]
+visible = false
+offset_left = -2.0
+offset_right = 38.0
+offset_bottom = 26.0
+scale = Vector2(0.358146, 0.358146)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

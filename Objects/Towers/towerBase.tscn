@@ -13,8 +13,9 @@ radius = 50.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_5hg32"]
 radius = 8.0
 
-[node name="towerBase" type="Node2D"]
+[node name="towerBase" type="Node2D" node_paths=PackedStringArray("dice_spawn_location")]
 script = ExtResource("1_1hgr3")
+dice_spawn_location = NodePath("Dice Spawn Location")
 
 [node name="Draggable Item Collision" type="Area2D" parent="."]
 collision_layer = 16
@@ -54,6 +55,9 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("13_nvo6j")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Dice Spawn Location" type="Node2D" parent="."]
+position = Vector2(1, -16)
 
 [connection signal="area_entered" from="Draggable Item Collision" to="." method="_on_draggable_item_collision_area_entered"]
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
