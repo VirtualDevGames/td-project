@@ -17,6 +17,7 @@ var bulletScale = Vector2(0.8 , 0.8)
 var isActive = true
 var is_effecting : bool
 var hits_left = 0
+var hits_landed = 0
 @export var onHitType : OnHitTypes.Types
 
 var enemies_previously_hit : Array[Node2D]
@@ -32,8 +33,12 @@ func _on_area_2d_area_entered(area):
 	   && area.collision_layer != 32             \
 	   && isActive :
 		#isActive = false
-		(area.get_parent() as EnemyBase).TakeDamage(damage)
-		TriggerOnHit(area) 
+		if hits_landed <= hits_left:
+			#print("Time elapsed: " , Time.get_ticks_msec(), " Object ID: ",get_instance_id()) 
+			hits_landed += 1
+			(area.get_parent() as EnemyBase).TakeDamage(damage)
+			TriggerOnHit(area) 
+			#print(hits_landed)
 
 func TriggerOnHit(_area : Area2D) :
 	match onHitProperty:

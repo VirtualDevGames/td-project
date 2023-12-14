@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d37washb3psk8"]
+[gd_scene load_steps=7 format=3 uid="uid://d37washb3psk8"]
 
 [ext_resource type="Script" path="res://Objects/Towers/towerBase.gd" id="1_1hgr3"]
+[ext_resource type="PackedScene" uid="uid://bymrf3uwof77w" path="res://Objects/Dice/DiceRoller.tscn" id="3_654en"]
 [ext_resource type="Texture2D" uid="uid://bwcy3sdal5lxw" path="res://Resources/Sprites/Enemies/crosshair.png" id="13_nvo6j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wibvd"]
@@ -13,9 +14,9 @@ radius = 50.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_5hg32"]
 radius = 8.0
 
-[node name="towerBase" type="Node2D" node_paths=PackedStringArray("dice_spawn_location")]
+[node name="towerBase" type="Node2D" node_paths=PackedStringArray("dice")]
 script = ExtResource("1_1hgr3")
-dice_spawn_location = NodePath("Dice Spawn Location")
+dice = NodePath("DiceRoller")
 
 [node name="Draggable Item Collision" type="Area2D" parent="."]
 collision_layer = 16
@@ -56,8 +57,9 @@ texture = ExtResource("13_nvo6j")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Dice Spawn Location" type="Node2D" parent="."]
-position = Vector2(1, -16)
+[node name="DiceRoller" parent="." instance=ExtResource("3_654en")]
+z_index = 1
+position = Vector2(0, -18)
 
 [connection signal="area_entered" from="Draggable Item Collision" to="." method="_on_draggable_item_collision_area_entered"]
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]

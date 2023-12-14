@@ -22,12 +22,15 @@ var invisible_tile_atlas_coords = Vector2(12,1)
 
 @onready var enemySpawnPoint = $EnemySpawnPoint
 
+func _ready():
+	SpawnTestTowers()
+
 func _process(_delta):
 	if Input.is_action_just_pressed("Spacebar") :
 		can_place_turrets = !can_place_turrets
 
 func _input(event):
-	if Input.is_action_just_pressed("M1"):
+	if Input.is_action_just_pressed("Left Click"):
 			if can_place_turrets:
 				var tile_mouse_pos : Vector2i = local_to_map(get_local_mouse_position())
 				var tile_data_bottom_layer : TileData = \
@@ -41,24 +44,29 @@ func _input(event):
 						if tile_data_decoration_layer :
 							if tile_data_decoration_layer.get_custom_data("Buildable") :
 								set_cell(building_layer, tile_mouse_pos, 0, invisible_tile_atlas_coords)
-								SpawnTurret(map_to_local(tile_mouse_pos))
+								SpawnTower(map_to_local(tile_mouse_pos), nodeToSpawn)
 						else :
 							set_cell(building_layer, tile_mouse_pos, 0, invisible_tile_atlas_coords)
-							SpawnTurret(map_to_local(tile_mouse_pos))
+							SpawnTower(map_to_local(tile_mouse_pos), nodeToSpawn)
 	
-	elif Input.is_action_just_pressed("M2"):
+	elif Input.is_action_just_pressed("Right Click"):
 			SpawnEnemy()
 
-func SpawnTurret(_position):
-	var spawnInstance = nodeToSpawn.instantiate()
-	spawnInstance.global_position = _position
-	add_child(spawnInstance)
-	UiSignals.add_tower.emit(spawnInstance, 1)
+func SpawnTower(_position, turret_path):
+	var turret_instance = turret_path.instantiate()
+	turret_instance.global_position = _position
+	add_child(turret_instance)
+	UiSignals.add_tower.emit(turret_instance, 1)
 
 func SpawnEnemy() :
-	var spawnInstancePath = path.instantiate()
-	add_child(spawnInstancePath)
-	spawnInstancePath.position = enemySpawnPoint.position
-	var spawnInstanceEnemy = enemyNode.instantiate()
-	spawnInstancePath.get_child(0).add_child(spawnInstanceEnemy)
-	(spawnInstancePath as EnemyPath).pathSpeed = (spawnInstanceEnemy as EnemyBase).speed
+	var path_instance = path.instantiate()
+	add_child(path_instance)
+	path_instance.position = enemySpawnPoint.position
+	var enemy_instance = enemyNode.instantiate()
+	path_instance.get_child(0).add_child(enemy_instance)
+	(path_instance as EnemyPath).pathSpeed = (enemy_instance as EnemyBase).speed
+	
+var cappo_tower = preload("res://Objects/Towers/Cappo Tower.tscn")
+var binki_tower = preload("res://Objects/Towers/Binki Tower.tscn")
+func SpawnTestTowers():
+	SpawnTower(Vector2(-73,41), cappo_tower)

@@ -4,10 +4,7 @@ class_name TowerBase
 
 var projectile = preload("res://Objects/Projectiles/ProjectileBase.tscn")
 
-var projectileBase = preload("res://Objects/Projectiles/ProjectileBase.tscn")
-
-var dice_object = preload("res://Objects/Dice/DiceRoller.tscn")
-@export var dice_spawn_location : Node2D
+@export var dice : DiceRoller
 
 var isFollowingTarget = false
 var targetObject : EnemyBase
@@ -17,6 +14,7 @@ var smoothed_look_at_pos : Vector2
 var animcounter : float
 
 var canShoot : bool = true
+var dice_damage = 0
 
 # Tower Data Variables
 @export var towerData : TowerData
@@ -24,29 +22,16 @@ var towerType : int = 0
 var tname : String = ""
 var cost : int = 0
 @onready var shootingTimer = $Timer
-var projectileSpeed : float = 0
 @onready var _range : CollisionShape2D = $Range/Range
 @onready var draggable_item_collision : CollisionShape2D = $"Draggable Item Collision/CollisionShape2D"
 
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
 @onready var crosshair = $crosshair
 
-
-enum TowerTypes{
-	Blue = 0,
-	Red = 1,
-}
-
 func _ready():
-	var dice_instance = dice_object.instantiate()
-	dice_spawn_location.add_child(dice_instance)
-	var test = (dice_instance as DiceRoller).RollDice()
-	#_range.disabled = true
-	towerType = TowerTypes.Blue
-	projectile = projectileBase
-	#SetTowerData(towerData.duplicate())
+	SetTowerData(towerData)
 
-func process(_delta):
+func _process(_delta):
 	pass
 
 func _physics_process(_delta):
@@ -57,11 +42,8 @@ func _physics_process(_delta):
 			var checking = enemy
 			if (checking.lifeTime > targetObject.lifeTime) :
 				targetObject = checking
-		# If has target, follow it
-		#TurnToLookAt(targetObject.get_parent().global_position)
+		# If has target, shoot it
 		crosshair.global_position = targetObject.get_parent().global_position
-		if(targetObject != null) :
-			Shoot()
 
 func TurnToLookAt(pos : Vector2) :
 	smoothed_look_at_pos = lerp(smoothed_look_at_pos, pos, 1)
@@ -70,6 +52,13 @@ func TurnToLookAt(pos : Vector2) :
 func Shoot() :
 	if canShoot :
 		canShoot = false
+		
+		# Roll damage, wait for animation to finish
+		dice_damage = dice.RollDice()
+		await dice.finished_rolling
+		# Start shooting cd
+		shootingTimer.start()
+		
 		if enemiesArray.size() > 0 :
 			var space_between_shots = 0.0
 			var current_spread = 0
@@ -87,10 +76,13 @@ func Shoot() :
 				projectileInstance.vel = \
 					Vector2(target_location - projectileInstance.global_position).rotated(deg_to_rad(current_spread))
 				projectileInstance.onHitProperty = towerData.on_hit_type
-				projectileInstance.damage = towerData.damage
+				projectileInstance.damage = dice_damage#towerData.damage
 				projectileInstance.on_hit_damage = towerData.on_hit_damage
 				projectileInstance.hits_left = towerData.pierces
 				current_spread = current_spread + space_between_shots
+			if enemiesArray.size() > 0 :
+				pass#Shoot()
+
 
 # Set Tower Data
 func SetTowerData(data : TowerData) :
@@ -107,10 +99,6 @@ func UpgradeProperty(property_name : String, value : float) :
 	towerData.set(property_name, towerData.get(property_name) + value)
 	SetTowerData(towerData)
 
-@onready var dice_label = $Label
-func RollDice() :
-	pass
-
 # Follow Mouse
 func _on_area_2d_mouse_entered():
 	pass #isFollowingTarget = true
@@ -123,9 +111,9 @@ func _on_range_area_entered(area):
 	enemiesArray.push_front(area.get_parent()) #enemiesArray.push_front(area.get_parent())
 	targetObject = area.get_parent()
 	isFollowingTarget = true
-	if shootingTimer.is_stopped() :
-		shootingTimer.start()
-
+	if canShoot :
+		Shoot()#shootingTimer.start()
+	
 func _on_range_area_exited(area):
 	enemiesArray.erase(area.get_parent())
 	isFollowingTarget = false
@@ -141,5 +129,5 @@ func _on_timer_timeout():
 		Shoot()
 
 func _on_draggable_item_collision_area_entered(_area):
-	pass#print(_area.name)
+	pass
 

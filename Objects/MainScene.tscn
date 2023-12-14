@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://du2sk0sn7uo83" path="res://Objects/Towers/Binki Tower.tscn" id="8_1h5vt"]
 [ext_resource type="Script" path="res://Objects/Towers/Tower Data/TowerData.gd" id="8_hbfo4"]
 
-[sub_resource type="Resource" id="Resource_e027r"]
+[sub_resource type="Resource" id="Resource_14b2d"]
 resource_local_to_scene = true
 script = ExtResource("8_hbfo4")
 name = "Cappo"
@@ -24,7 +24,7 @@ on_hit_damage = 0
 explosive = 0
 amount_of_shots = 1
 pierces = 0
-shootingSpeed = 10.0
+shootingSpeed = 1.0
 projectileSpeed = 100.0
 _range = 50.0
 
@@ -148,8 +148,12 @@ position = Vector2(52.227, 124.375)
 scale = Vector2(0.5, 0.5)
 
 [node name="Cappo Tower" parent="." instance=ExtResource("7_ci5pp")]
-position = Vector2(-82, 42)
-towerData = SubResource("Resource_e027r")
+position = Vector2(-29.103, 40.8275)
+towerData = SubResource("Resource_14b2d")
 
 [node name="Binki Tower" parent="." instance=ExtResource("8_1h5vt")]
-position = Vector2(-31, 43)
+position = Vector2(170.893, -102.731)
+
+[node name="Binki Tower2" parent="." node_paths=PackedStringArray("dice") instance=ExtResource("8_1h5vt")]
+position = Vector2(185.242, -41.3279)
+dice = NodePath("../Binki Tower/DiceRoller")

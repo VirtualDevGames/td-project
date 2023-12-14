@@ -18,4 +18,4 @@ amount_of_shots = 1
 pierces = 0
 shootingSpeed = 1.0
 projectileSpeed = 100.0
-_range = 100.0
+_range = 50.0

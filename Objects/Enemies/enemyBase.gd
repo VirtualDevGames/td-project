@@ -4,9 +4,9 @@ class_name EnemyBase
 
 var lifeTime = 0.0
 var lifeTimeSpeed = 0.1
-var maxHP = 3
+var maxHP = 10
 var HP = maxHP
-var speed = 50
+var speed = 25
 
 @onready var hpbar = $"HP Bar"
 
@@ -16,8 +16,6 @@ func _ready():
 
 func _physics_process(_delta):
 	lifeTime += _delta
-	#if lifeTime >= 20 :
-		#queue_free()
 
 func get_Lifetime():
 	return lifeTime

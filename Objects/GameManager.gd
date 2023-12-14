@@ -35,7 +35,7 @@ var piercing_trait = preload("res://Objects/Traits/Piercing.tres")
 var reroll_trait = preload("res://Objects/Traits/Reroll.tres")
 var swift_trait = preload("res://Objects/Traits/Swift.tres")
 
-var nodeToSpawn = preload("res://Objects/Towers/Cappo Tower.tscn")
+
 
 var traits : Array[TraitResource]  = [
 	# Classes
@@ -50,29 +50,11 @@ var traits : Array[TraitResource]  = [
 	swift_trait
 ]
 
-var old_traits_dictionary = [
-	# Classes
-	{"name": "Rock",  "amount" : 0},
-	{"name": "Fire",  "amount" : 1},
-	{"name": "Ice",   "amount" : 0},
-	{"name": "Grass", "amount" : 2},
-	# Oddities
-	{"name": "Piercing", "amount" : 0},
-	{"name": "Swift",    "amount" : 0},
-	{"name": "Reroll",   "amount" : 0},
-	{"name": "Mystic",   "amount" : 0},
-]
-
-# Classes
-var rock_trait_tracker : int
-var fire_trait_tracker : int
-var ice_trait_tracker : int
-var grass_trait_tracker : int
-# Oddity
-var piercing_trait_tracker : int
-var swift_trait_tracker : int
-var reroll_trait_tracker : int
-var mystic_trait_tracker : int
+func _ready():
+	GetUISlots()
+	SortTraits()
+	UiSignals.update_traits_column.emit()
+	UiSignals.add_tower.connect(UpdateTrait)
 
 # Inventory UI  x original -122 target -20 
 func _process(_delta):
@@ -82,12 +64,6 @@ func _process(_delta):
 		
 	if moving_ui:
 		MoveInventory()
-
-func _ready():
-	GetUISlots()
-	SortTraits()
-	UiSignals.update_traits_column.emit()
-	UiSignals.add_tower.connect(UpdateTrait)
 
 func _input(event):
 	if Input.is_action_just_pressed("Inventory"):
@@ -165,6 +141,8 @@ func UpdateTrait(tower : TowerBase, amount : int) :
 	if success :
 		SortTraits()
 		UiSignals.update_traits_column.emit()
+
+
 
 func _on_world_boundaries_area_entered(area):
 	area.call_deferred("queue_free")

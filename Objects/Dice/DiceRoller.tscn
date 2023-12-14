@@ -81,16 +81,18 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 10.0
+"speed": 20.0
 }]
 
-[node name="DiceRoller" type="Node2D" node_paths=PackedStringArray("anim", "number_label", "number_bg")]
+[node name="DiceRoller" type="Node2D" node_paths=PackedStringArray("anim", "number_label", "number_bg", "visibility_timer")]
 script = ExtResource("1_1e0df")
 anim = NodePath("AnimatedSprite2D")
 number_label = NodePath("Number")
 number_bg = NodePath("Number BG")
+visibility_timer = NodePath("Remove Visibility Timer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_x5uir")
 frame = 11
 frame_progress = 1.0
@@ -110,4 +112,8 @@ scale = Vector2(0.358146, 0.358146)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0"
 
+[node name="Remove Visibility Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Remove Visibility Timer" to="." method="_on_remove_visibility_timer_timeout"]
