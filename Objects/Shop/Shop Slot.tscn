@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bqq3lrdm54hv6"]
+[gd_scene load_steps=24 format=3 uid="uid://bqq3lrdm54hv6"]
 
 [ext_resource type="FontFile" uid="uid://bxvnmdh50e4qp" path="res://Resources/UI/Fonts/NicoPaint-Regular.ttf" id="1_fx5cl"]
 [ext_resource type="Script" path="res://Objects/Shop/Shop Slot.gd" id="2_ba5y1"]
@@ -14,6 +14,16 @@ spacing_bottom = 20
 [sub_resource type="Theme" id="Theme_bsb7b"]
 default_font = ExtResource("1_fx5cl")
 /fonts/Variation = SubResource("FontVariation_rsxgt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_moxys"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_74f5f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6vhct"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s5f02"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bd575"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jub5w"]
 atlas = ExtResource("6_nubxd")
@@ -86,7 +96,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Shop Slot" type="Control" node_paths=PackedStringArray("slot_sprite", "animated_sprite", "trait_1_label", "trait_2_label", "trait_3_label", "trait_1_icon", "trait_2_icon", "trait_3_icon")]
+[node name="Shop Slot" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -95,17 +105,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_bsb7b")
 script = ExtResource("2_ba5y1")
-slot_sprite = NodePath("Background")
-animated_sprite = NodePath("Tower Animated Sprite")
-trait_1_label = NodePath("Trait Labels/Trait 1")
-trait_2_label = NodePath("Trait Labels/Trait 2")
-trait_3_label = NodePath("Trait Labels/Trait 3")
-trait_1_icon = NodePath("Trait Icons/Trait Icon 1")
-trait_2_icon = NodePath("Trait Icons/Trait Icon 2")
-trait_3_icon = NodePath("Trait Icons/Trait Icon 3")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(28, 17)
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(6.99264, 4.26354)
+theme_override_styles/normal = SubResource("StyleBoxTexture_moxys")
+theme_override_styles/hover = SubResource("StyleBoxTexture_74f5f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6vhct")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_s5f02")
+theme_override_styles/focus = SubResource("StyleBoxTexture_bd575")
+flat = true
+
+[node name="Background" type="Sprite2D" parent="Button"]
+position = Vector2(4.00421, 3.9873)
+scale = Vector2(0.143008, 0.234547)
 texture = ExtResource("3_vu1q4")
 
 [node name="Tower Animated Sprite" type="AnimatedSprite2D" parent="."]
@@ -114,6 +129,7 @@ sprite_frames = ExtResource("4_fahkb")
 
 [node name="Trait Labels" type="Control" parent="."]
 anchors_preset = 0
+mouse_filter = 2
 
 [node name="Trait 1" type="Label" parent="Trait Labels"]
 layout_mode = 0
@@ -147,8 +163,7 @@ text = "
 
 [node name="Trait Icons" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="Trait Icon 1" type="Sprite2D" parent="Trait Icons"]
 visible = false
@@ -170,15 +185,14 @@ texture = ExtResource("5_p350s")
 
 [node name="Cost Panel" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="Coin Animated Sprite" type="AnimatedSprite2D" parent="Cost Panel"]
 position = Vector2(6, 28)
 scale = Vector2(0.375801, 0.375801)
 sprite_frames = SubResource("SpriteFrames_01fvb")
 autoplay = "default"
-frame_progress = 0.561587
+frame_progress = 0.694587
 
 [node name="Cost Label" type="Label" parent="Cost Panel"]
 layout_mode = 0
@@ -187,5 +201,6 @@ offset_top = 27.0
 offset_right = 174.0
 offset_bottom = 53.0
 scale = Vector2(0.233655, 0.233655)
-text = "50
-"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -17,7 +17,8 @@ config/features=PackedStringArray("4.1", "Forward Plus")
 [autoload]
 
 UiSignals="*res://Objects/Signal Managers/UISignals.gd"
-Traits="*res://Scripts/GlobalTraits.gd"
+TraitsOld="*res://Scripts/GlobalTraits.gd"
+TraitsManager="*res://Objects/Traits/TraitsManager.gd"
 
 [display]
 

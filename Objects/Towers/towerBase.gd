@@ -20,7 +20,6 @@ var dice_damage = 0
 @export var towerData : TowerData
 var towerType : int = 0
 var tname : String = ""
-var cost : int = 0
 @onready var shootingTimer = $Timer
 @onready var _range : CollisionShape2D = $Range/Range
 @onready var draggable_item_collision : CollisionShape2D = $"Draggable Item Collision/CollisionShape2D"
@@ -91,7 +90,6 @@ func SetTowerData(data : TowerData) :
 		data.on_hit_type = OnHitTypes.Types.Explosive
 	_range.shape = _range.shape.duplicate()
 	tname = data.name
-	cost = cost + data.cost
 	shootingTimer.set_wait_time(data.shootingSpeed)
 	_range.shape.radius = data._range
 

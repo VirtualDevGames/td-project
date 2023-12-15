@@ -21,7 +21,7 @@ position = Vector2(0, 0)
 position = Vector2(94, 85)
 zoom = Vector2(1.8, 1.8)
 
-[node name="GameUI" parent="." node_paths=PackedStringArray("gameManager") instance=ExtResource("6_ytod7")]
+[node name="Traits UI" parent="." node_paths=PackedStringArray("gameManager") instance=ExtResource("6_ytod7")]
 layer = 0
 gameManager = NodePath("..")
 
