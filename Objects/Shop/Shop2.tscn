@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnvxoujfrw35g"]
+
+[ext_resource type="Theme" uid="uid://4da3p0qe4dsm" path="res://Resources/UI/GameUITheme.tres" id="1_e50be"]
+[ext_resource type="Script" path="res://Objects/Shop/Shop.gd" id="2_f8dre"]
+[ext_resource type="Texture2D" uid="uid://dkwed2p144nfp" path="res://Resources/UI/shopUI2.png" id="3_oc2um"]
+[ext_resource type="PackedScene" uid="uid://bqq3lrdm54hv6" path="res://Objects/Shop/Shop Slot.tscn" id="4_xwq0c"]
+[ext_resource type="Resource" uid="uid://bu2qbfattq7qe" path="res://Objects/Towers/Tower Data/Mash_td.tres" id="5_qgoj6"]
+[ext_resource type="Resource" uid="uid://cv0s8thbvo1nb" path="res://Objects/Towers/Tower Data/Mooi_td.tres" id="6_7nju8"]
+[ext_resource type="Resource" uid="uid://b5fyjnu24bpw1" path="res://Objects/Towers/Tower Data/Rocklee_td.tres" id="7_2uhpl"]
+[ext_resource type="Resource" uid="uid://di31gk4516dlx" path="res://Objects/Towers/Tower Data/Breeze_td.tres" id="8_o8gg6"]
+[ext_resource type="Resource" uid="uid://p2ignidqtfxo" path="res://Objects/Towers/Tower Data/Cappo_td.tres" id="9_4gwpx"]
+[ext_resource type="Resource" uid="uid://dlpkjfsqbjvud" path="res://Objects/Towers/Tower Data/Whooshie_td.tres" id="10_1r88b"]
+
+[node name="Shop" type="Control" node_paths=PackedStringArray("slot1", "slot2", "slot3", "slot4", "slot5", "slot6")]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_e50be")
+script = ExtResource("2_f8dre")
+slot1 = NodePath("Shop Slot 1")
+slot2 = NodePath("Shop Slot 2")
+slot3 = NodePath("Shop Slot 3")
+slot4 = NodePath("Shop Slot 4")
+slot5 = NodePath("Shop Slot 5")
+slot6 = NodePath("Shop Slot 6")
+
+[node name="UI Image" type="Sprite2D" parent="."]
+texture = ExtResource("3_oc2um")
+
+[node name="Shop Slot 1" parent="." instance=ExtResource("4_xwq0c")]
+layout_mode = 1
+offset_left = -104.0
+offset_top = -32.0
+offset_right = -104.0
+offset_bottom = -32.0
+tower = ExtResource("5_qgoj6")
+
+[node name="Shop Slot 2" parent="." instance=ExtResource("4_xwq0c")]
+layout_mode = 1
+offset_left = -32.0
+offset_top = -32.0
+offset_right = -32.0
+offset_bottom = -32.0
+tower = ExtResource("6_7nju8")
+
+[node name="Shop Slot 3" parent="." instance=ExtResource("4_xwq0c")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = -32.0
+tower = ExtResource("7_2uhpl")
+
+[node name="Shop Slot 4" parent="." instance=ExtResource("4_xwq0c")]
+layout_mode = 1
+offset_left = -104.0
+offset_top = 8.0
+offset_right = -104.0
+offset_bottom = 8.0
+tower = ExtResource("8_o8gg6")
+
+[node name="Shop Slot 5" parent="." instance=ExtResource("4_xwq0c")]
+layout_mode = 1
+offset_left = -32.0
+offset_top = 8.0
+offset_right = -32.0
+offset_bottom = 8.0
+tower = ExtResource("9_4gwpx")
+
+[node name="Shop Slot 6" parent="." instance=ExtResource("4_xwq0c")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 8.0
+tower = ExtResource("10_1r88b")
+
+[node name="Title Label" type="Label" parent="."]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = -20.0
+offset_top = -47.0
+offset_right = 20.0
+offset_bottom = -28.0
+text = "Shop
+"

@@ -67,7 +67,7 @@ func Shoot() :
 				current_spread = -30#(space_between_shots * floor(towerData.amount_of_shots/2))
 			for n in towerData.amount_of_shots :
 				var target_location = targetObject.global_position
-				anim.play()
+				#anim.play()
 				var projectileInstance : ProjectileBase = projectile.instantiate()
 				get_parent().add_child(projectileInstance)
 				projectileInstance.global_position = $"AnimatedSprite2D/Shoot Location".global_position

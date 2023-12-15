@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://5bl1ugummgkt"]
 
 [ext_resource type="Theme" uid="uid://4da3p0qe4dsm" path="res://Resources/UI/GameUITheme.tres" id="1_eufk4"]
-[ext_resource type="Texture2D" uid="uid://cbupev7a6wf0a" path="res://Resources/UI/shopUI.png" id="1_hsur3"]
 [ext_resource type="Script" path="res://Objects/Shop/Shop.gd" id="2_ij0vc"]
+[ext_resource type="Texture2D" uid="uid://dkwed2p144nfp" path="res://Resources/UI/shopUI2.png" id="3_6xm37"]
 [ext_resource type="PackedScene" uid="uid://bqq3lrdm54hv6" path="res://Objects/Shop/Shop Slot.tscn" id="4_546np"]
 [ext_resource type="Resource" uid="uid://bu2qbfattq7qe" path="res://Objects/Towers/Tower Data/Mash_td.tres" id="5_cnm0m"]
 [ext_resource type="Resource" uid="uid://cv0s8thbvo1nb" path="res://Objects/Towers/Tower Data/Mooi_td.tres" id="6_57t8w"]
 [ext_resource type="Resource" uid="uid://b5fyjnu24bpw1" path="res://Objects/Towers/Tower Data/Rocklee_td.tres" id="7_341vv"]
-[ext_resource type="Resource" uid="uid://b5x0keof1dajy" path="res://Objects/Towers/Tower Data/Soot_td.tres" id="8_lbjnq"]
+[ext_resource type="Resource" uid="uid://di31gk4516dlx" path="res://Objects/Towers/Tower Data/Breeze_td.tres" id="8_846eb"]
 [ext_resource type="Resource" uid="uid://p2ignidqtfxo" path="res://Objects/Towers/Tower Data/Cappo_td.tres" id="9_yduxy"]
 [ext_resource type="Resource" uid="uid://dlpkjfsqbjvud" path="res://Objects/Towers/Tower Data/Whooshie_td.tres" id="10_tam5m"]
 
@@ -25,54 +25,54 @@ slot5 = NodePath("Shop Slot 5")
 slot6 = NodePath("Shop Slot 6")
 
 [node name="UI Image" type="Sprite2D" parent="."]
-texture = ExtResource("1_hsur3")
+texture = ExtResource("3_6xm37")
 
 [node name="Shop Slot 1" parent="." instance=ExtResource("4_546np")]
 layout_mode = 1
-offset_left = -80.0
-offset_top = -28.0
-offset_right = -80.0
-offset_bottom = -28.0
+offset_left = -92.0
+offset_top = -32.0
+offset_right = -92.0
+offset_bottom = -32.0
 tower = ExtResource("5_cnm0m")
 
 [node name="Shop Slot 2" parent="." instance=ExtResource("4_546np")]
 layout_mode = 1
-offset_left = -24.0
-offset_top = -28.0
-offset_right = -24.0
-offset_bottom = -28.0
+offset_left = -28.0
+offset_top = -32.0
+offset_right = -28.0
+offset_bottom = -32.0
 tower = ExtResource("6_57t8w")
 
 [node name="Shop Slot 3" parent="." instance=ExtResource("4_546np")]
 layout_mode = 1
-offset_left = 32.0
-offset_top = -28.0
-offset_right = 32.0
-offset_bottom = -28.0
+offset_left = 36.0
+offset_top = -32.0
+offset_right = 36.0
+offset_bottom = -32.0
 tower = ExtResource("7_341vv")
 
 [node name="Shop Slot 4" parent="." instance=ExtResource("4_546np")]
 layout_mode = 1
-offset_left = -80.0
-offset_top = 4.0
-offset_right = -80.0
-offset_bottom = 4.0
-tower = ExtResource("8_lbjnq")
+offset_left = -92.0
+offset_top = 8.0
+offset_right = -92.0
+offset_bottom = 8.0
+tower = ExtResource("8_846eb")
 
 [node name="Shop Slot 5" parent="." instance=ExtResource("4_546np")]
 layout_mode = 1
-offset_left = -24.0
-offset_top = 4.0
-offset_right = -24.0
-offset_bottom = 4.0
+offset_left = -28.0
+offset_top = 8.0
+offset_right = -28.0
+offset_bottom = 8.0
 tower = ExtResource("9_yduxy")
 
 [node name="Shop Slot 6" parent="." instance=ExtResource("4_546np")]
 layout_mode = 1
-offset_left = 32.0
-offset_top = 4.0
-offset_right = 32.0
-offset_bottom = 4.0
+offset_left = 36.0
+offset_top = 8.0
+offset_right = 36.0
+offset_bottom = 8.0
 tower = ExtResource("10_tam5m")
 
 [node name="Title Label" type="Label" parent="."]
@@ -80,8 +80,8 @@ texture_filter = 1
 texture_repeat = 1
 layout_mode = 0
 offset_left = -20.0
-offset_top = -47.0
+offset_top = -50.0
 offset_right = 20.0
-offset_bottom = -28.0
+offset_bottom = -31.0
 text = "Shop
 "

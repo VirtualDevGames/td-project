@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqq3lrdm54hv6"]
+[gd_scene load_steps=19 format=3 uid="uid://bqq3lrdm54hv6"]
 
 [ext_resource type="FontFile" uid="uid://bxvnmdh50e4qp" path="res://Resources/UI/Fonts/NicoPaint-Regular.ttf" id="1_fx5cl"]
-[ext_resource type="SpriteFrames" uid="uid://bs87qcttwag3o" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Cappo Tower.tres" id="2_aip3p"]
 [ext_resource type="Script" path="res://Objects/Shop/Shop Slot.gd" id="2_ba5y1"]
+[ext_resource type="Texture2D" uid="uid://dc3ci5ena3mpm" path="res://Resources/UI/Shop Slot Sprites/shop_slot_expanded1.png" id="3_vu1q4"]
+[ext_resource type="SpriteFrames" uid="uid://ygquh8rd242x" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Breeze_anim.tres" id="4_fahkb"]
+[ext_resource type="Texture2D" uid="uid://drk2vbik80ewn" path="res://Resources/Sprites/Traits/Rock.png" id="5_p350s"]
+[ext_resource type="Texture2D" uid="uid://bq38jilo58cam" path="res://Resources/Sprites/Shop/goldcoin.png" id="6_nubxd"]
 
 [sub_resource type="FontVariation" id="FontVariation_rsxgt"]
 base_font = ExtResource("1_fx5cl")
@@ -12,7 +15,78 @@ spacing_bottom = 20
 default_font = ExtResource("1_fx5cl")
 /fonts/Variation = SubResource("FontVariation_rsxgt")
 
-[node name="Shop Slot" type="Control" node_paths=PackedStringArray("animated_sprite", "trait_1_label", "trait_2_label", "trait_3_label")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jub5w"]
+atlas = ExtResource("6_nubxd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hqcs"]
+atlas = ExtResource("6_nubxd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_067ix"]
+atlas = ExtResource("6_nubxd")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayswx"]
+atlas = ExtResource("6_nubxd")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dj0gp"]
+atlas = ExtResource("6_nubxd")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dslqp"]
+atlas = ExtResource("6_nubxd")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twjcs"]
+atlas = ExtResource("6_nubxd")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsoaa"]
+atlas = ExtResource("6_nubxd")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foqa0"]
+atlas = ExtResource("6_nubxd")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01fvb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jub5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hqcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_067ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayswx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dj0gp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dslqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twjcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsoaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foqa0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Shop Slot" type="Control" node_paths=PackedStringArray("slot_sprite", "animated_sprite", "trait_1_label", "trait_2_label", "trait_3_label", "trait_1_icon", "trait_2_icon", "trait_3_icon")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,47 +95,97 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_bsb7b")
 script = ExtResource("2_ba5y1")
-animated_sprite = NodePath("AnimatedSprite2D")
+slot_sprite = NodePath("Background")
+animated_sprite = NodePath("Tower Animated Sprite")
 trait_1_label = NodePath("Trait Labels/Trait 1")
 trait_2_label = NodePath("Trait Labels/Trait 2")
 trait_3_label = NodePath("Trait Labels/Trait 3")
+trait_1_icon = NodePath("Trait Icons/Trait Icon 1")
+trait_2_icon = NodePath("Trait Icons/Trait Icon 2")
+trait_3_icon = NodePath("Trait Icons/Trait Icon 3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(28, 17)
+texture = ExtResource("3_vu1q4")
+
+[node name="Tower Animated Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(12, 12)
-sprite_frames = ExtResource("2_aip3p")
-animation = &"DwarfA"
-autoplay = "DwarfA"
-frame_progress = 0.313728
+sprite_frames = ExtResource("4_fahkb")
 
 [node name="Trait Labels" type="Control" parent="."]
 anchors_preset = 0
 
 [node name="Trait 1" type="Label" parent="Trait Labels"]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 4.0
-offset_right = 76.0
-offset_bottom = 30.0
+offset_left = 34.0
+offset_top = 5.0
+offset_right = 197.0
+offset_bottom = 31.0
 scale = Vector2(0.233655, 0.233655)
 text = "
 "
 
 [node name="Trait 2" type="Label" parent="Trait Labels"]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 10.036
-offset_right = 88.0
-offset_bottom = 36.036
+offset_left = 34.0
+offset_top = 15.0
+offset_right = 94.0
+offset_bottom = 41.0
 scale = Vector2(0.233655, 0.233655)
 text = "
 "
 
 [node name="Trait 3" type="Label" parent="Trait Labels"]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 16.0721
-offset_right = 98.0
-offset_bottom = 42.0721
+offset_left = 34.0
+offset_top = 25.0
+offset_right = 104.0
+offset_bottom = 63.0
 scale = Vector2(0.233655, 0.233655)
 text = "
+"
+
+[node name="Trait Icons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Trait Icon 1" type="Sprite2D" parent="Trait Icons"]
+visible = false
+position = Vector2(29, 7)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("5_p350s")
+
+[node name="Trait Icon 2" type="Sprite2D" parent="Trait Icons"]
+visible = false
+position = Vector2(29, 17)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("5_p350s")
+
+[node name="Trait Icon 3" type="Sprite2D" parent="Trait Icons"]
+visible = false
+position = Vector2(29, 27)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("5_p350s")
+
+[node name="Cost Panel" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Coin Animated Sprite" type="AnimatedSprite2D" parent="Cost Panel"]
+position = Vector2(6, 28)
+scale = Vector2(0.375801, 0.375801)
+sprite_frames = SubResource("SpriteFrames_01fvb")
+autoplay = "default"
+frame_progress = 0.561587
+
+[node name="Cost Label" type="Label" parent="Cost Panel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 27.0
+offset_right = 174.0
+offset_bottom = 53.0
+scale = Vector2(0.233655, 0.233655)
+text = "50
 "
