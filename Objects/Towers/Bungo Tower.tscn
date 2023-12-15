@@ -73,4 +73,5 @@ shape = SubResource("CircleShape2D_03n0l")
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_76cw0")
 animation = &"BallA"
+autoplay = "BallA"
 frame_progress = 0.900355

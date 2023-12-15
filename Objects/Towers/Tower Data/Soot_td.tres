@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="TowerData" load_steps=2 format=3 uid="uid://b5x0keof1dajy"]
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://b5x0keof1dajy"]
 
 [ext_resource type="Script" path="res://Objects/Towers/Tower Data/TowerData.gd" id="1_1bnw0"]
+[ext_resource type="SpriteFrames" uid="uid://baydxf84qrpdc" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Soot_anim.tres" id="1_12f5j"]
 
 [resource]
 script = ExtResource("1_1bnw0")
 name = "Soot"
-class_trait = 0
-oddity_trait = 0
-oddity_2_trait = 0
+animation = ExtResource("1_12f5j")
+class_trait = 4
+oddity_trait = 2
+oddity_2_trait = 4
 cost = 1
 damage = 1
 on_hit_type = 0
@@ -15,6 +17,6 @@ on_hit_damage = 0
 explosive = 0
 amount_of_shots = 1
 pierces = 0
-shootingSpeed = 10.0
+shootingSpeed = 1.0
 projectileSpeed = 100.0
 _range = 50.0

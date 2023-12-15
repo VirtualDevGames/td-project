@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqq3lrdm54hv6"]
+
+[ext_resource type="FontFile" uid="uid://bxvnmdh50e4qp" path="res://Resources/UI/Fonts/NicoPaint-Regular.ttf" id="1_fx5cl"]
+[ext_resource type="SpriteFrames" uid="uid://bs87qcttwag3o" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Cappo Tower.tres" id="2_aip3p"]
+[ext_resource type="Script" path="res://Objects/Shop/Shop Slot.gd" id="2_ba5y1"]
+
+[sub_resource type="FontVariation" id="FontVariation_rsxgt"]
+base_font = ExtResource("1_fx5cl")
+spacing_bottom = 20
+
+[sub_resource type="Theme" id="Theme_bsb7b"]
+default_font = ExtResource("1_fx5cl")
+/fonts/Variation = SubResource("FontVariation_rsxgt")
+
+[node name="Shop Slot" type="Control" node_paths=PackedStringArray("animated_sprite", "trait_1_label", "trait_2_label", "trait_3_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bsb7b")
+script = ExtResource("2_ba5y1")
+animated_sprite = NodePath("AnimatedSprite2D")
+trait_1_label = NodePath("Trait Labels/Trait 1")
+trait_2_label = NodePath("Trait Labels/Trait 2")
+trait_3_label = NodePath("Trait Labels/Trait 3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, 12)
+sprite_frames = ExtResource("2_aip3p")
+animation = &"DwarfA"
+autoplay = "DwarfA"
+frame_progress = 0.313728
+
+[node name="Trait Labels" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Trait 1" type="Label" parent="Trait Labels"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 4.0
+offset_right = 76.0
+offset_bottom = 30.0
+scale = Vector2(0.233655, 0.233655)
+text = "
+"
+
+[node name="Trait 2" type="Label" parent="Trait Labels"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 10.036
+offset_right = 88.0
+offset_bottom = 36.036
+scale = Vector2(0.233655, 0.233655)
+text = "
+"
+
+[node name="Trait 3" type="Label" parent="Trait Labels"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 16.0721
+offset_right = 98.0
+offset_bottom = 42.0721
+scale = Vector2(0.233655, 0.233655)
+text = "
+"

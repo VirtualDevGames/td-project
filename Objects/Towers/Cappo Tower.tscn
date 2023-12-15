@@ -17,6 +17,7 @@ shape = SubResource("CircleShape2D_soy8i")
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = ExtResource("3_b8jfn")
 animation = &"DwarfA"
+autoplay = "DwarfA"
 frame_progress = 0.931366
 
 [node name="DiceRoller" parent="." index="6"]

@@ -22,6 +22,8 @@ enum Class {
 	Rock,
 	Fire,
 	Ice,
+	Wind,
+	Thunder,
 	Grass,
 }
 # Secondary trait of tower
@@ -34,6 +36,7 @@ enum Oddity {
 }
 
 @export var name : String = ""
+@export var animation : SpriteFrames
 @export var class_trait : Class
 @export var oddity_trait : Oddity
 @export var oddity_2_trait : Oddity

@@ -1,0 +1,12 @@
+During rounds:
+Tower elements give spells that level up depending on element level
+Cast spells to defend against monsters
+Casting spells takes effort and is a main part of gameplay
+Neither spells nor towers should be strong enough to defend against the whole waves
+Balancing nightmare probably
+
+Between rounds, Shop round?:
+Several towers offered 
+Money used to purchase towers and reroll shop
+Consecutive rerolls in the same round cost more money
+Can merge towers for stronger towers (brotato)

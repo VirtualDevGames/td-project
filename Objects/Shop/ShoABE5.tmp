@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqq3lrdm54hv6"]
+
+[ext_resource type="FontFile" uid="uid://bxvnmdh50e4qp" path="res://Resources/UI/Fonts/NicoPaint-Regular.ttf" id="1_fx5cl"]
+[ext_resource type="SpriteFrames" uid="uid://bs87qcttwag3o" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Cappo Tower.tres" id="2_aip3p"]
+
+[sub_resource type="FontVariation" id="FontVariation_rsxgt"]
+base_font = ExtResource("1_fx5cl")
+spacing_bottom = 20
+
+[sub_resource type="Theme" id="Theme_bsb7b"]
+default_font = ExtResource("1_fx5cl")
+/fonts/Variation = SubResource("FontVariation_rsxgt")
+
+[sub_resource type="GDScript" id="GDScript_tv8vu"]
+script/source = "extends Control
+
+class_name ShopSlot
+
+@export var animated_sprite : AnimatedSprite2D
+@export var trait_1_label : Label
+@export var trait_2_label : Label
+@export var trait_3_label : Label
+var trait_labels = [trait_1_label, trait_2_label, trait_3_label]
+
+#var towerpath = preload(\"res://Objects/Towers/Breeze Tower.tscn\")
+@export var towerpath : PackedScene
+
+func _ready():
+#	if towerpath:
+#		var tower = (towerpath.instantiate() as TowerBase).GetTowerData()
+#		#animated_sprite.sprite_frames = tower.towerData.cl
+#		if tower.towerData.class_trait != TowerData.Class.None :
+#			tower.towerData.anim
+#			trait_1_label.text = tower.towerData.Class.keys()[tower.towerData.class_trait]
+#		if tower.towerData.oddity_trait != TowerData.Oddity.None :
+#			trait_2_label.text = tower.towerData.Oddity.keys()[tower.towerData.oddity_trait]
+#		if tower.towerData.oddity_2_trait != TowerData.Oddity.None :
+#			trait_3_label.text = tower.towerData.Oddity.keys()[tower.towerData.oddity_2_trait]
+	if towerpath:
+		var tower = (towerpath.instantiate() as TowerBase).GetTowerData()
+		#animated_sprite = animated_sprite.duplicate()
+		animated_sprite.sprite_frames = tower.animation
+		animated_sprite.play()
+		
+		if tower.class_trait != TowerData.Class.None :
+			trait_1_label.text = \"- \" + tower.Class.keys()[tower.class_trait]
+		if tower.oddity_trait != TowerData.Oddity.None :
+			trait_2_label.text = \"- \" + tower.Oddity.keys()[tower.oddity_trait]
+		if tower.oddity_2_trait != TowerData.Oddity.None :
+			trait_3_label.text = \"- \" + tower.Oddity.keys()[tower.oddity_2_trait]
+"
+
+[node name="Shop Slot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bsb7b")
+script = SubResource("GDScript_tv8vu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, 12)
+sprite_frames = ExtResource("2_aip3p")
+animation = &"DwarfA"
+autoplay = "DwarfA"
+frame_progress = 0.313728
+
+[node name="Trait Labels" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Trait 1" type="Label" parent="Trait Labels"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 4.0
+offset_right = 76.0
+offset_bottom = 30.0
+scale = Vector2(0.233655, 0.233655)
+text = "
+"
+
+[node name="Trait 2" type="Label" parent="Trait Labels"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 10.036
+offset_right = 88.0
+offset_bottom = 36.036
+scale = Vector2(0.233655, 0.233655)
+text = "
+"
+
+[node name="Trait 3" type="Label" parent="Trait Labels"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 16.0721
+offset_right = 98.0
+offset_bottom = 42.0721
+scale = Vector2(0.233655, 0.233655)
+text = "
+"

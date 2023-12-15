@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="TowerData" load_steps=2 format=3 uid="uid://bu2qbfattq7qe"]
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://bu2qbfattq7qe"]
 
+[ext_resource type="SpriteFrames" uid="uid://fuh2arbfv0hn" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Mash_anim.tres" id="1_1as0x"]
 [ext_resource type="Script" path="res://Objects/Towers/Tower Data/TowerData.gd" id="1_sayox"]
 
 [resource]
 script = ExtResource("1_sayox")
 name = "Mash"
-class_trait = 0
-oddity_trait = 0
+animation = ExtResource("1_1as0x")
+class_trait = 6
+oddity_trait = 4
 oddity_2_trait = 0
 cost = 1
 damage = 1

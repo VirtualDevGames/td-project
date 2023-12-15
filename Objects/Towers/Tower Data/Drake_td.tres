@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_f00rn")
 name = "Drake"
-class_trait = 0
-oddity_trait = 0
+class_trait = 5
+oddity_trait = 1
 oddity_2_trait = 0
 cost = 1
 damage = 1

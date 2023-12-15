@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="TowerData" load_steps=2 format=3 uid="uid://b5fyjnu24bpw1"]
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://b5fyjnu24bpw1"]
 
+[ext_resource type="SpriteFrames" uid="uid://534lwtpqofes" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Rocklee_anim.tres" id="1_2qww3"]
 [ext_resource type="Script" path="res://Objects/Towers/Tower Data/TowerData.gd" id="1_gnhfe"]
 
 [resource]
 script = ExtResource("1_gnhfe")
 name = "Rocklee"
+animation = ExtResource("1_2qww3")
 class_trait = 1
-oddity_trait = 2
+oddity_trait = 3
+oddity_2_trait = 0
 cost = 1
 damage = 1
 on_hit_type = 0

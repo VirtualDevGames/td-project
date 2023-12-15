@@ -1,32 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwypc3mcul2br"]
+[gd_scene load_steps=9 format=3 uid="uid://dwypc3mcul2br"]
 
 [ext_resource type="Script" path="res://Objects/GameManager.gd" id="1_rkbs2"]
 [ext_resource type="PackedScene" uid="uid://bwm1ptjyglpem" path="res://Objects/Maps/Map1.tscn" id="2_oquj4"]
 [ext_resource type="Texture2D" uid="uid://dj6aatnf7pmy6" path="res://Resources/UI/sidebar1.png" id="4_xf1s1"]
 [ext_resource type="Texture2D" uid="uid://8ep0fh7ivjp0" path="res://Resources/UI/inventory3.png" id="5_gob70"]
+[ext_resource type="Texture2D" uid="uid://xx3lj5sbt3la" path="res://Resources/UI/sidebar2.png" id="6_1q7oa"]
 [ext_resource type="PackedScene" uid="uid://cp0bnp5aiudaw" path="res://Objects/UI/GameUI.tscn" id="6_ytod7"]
-[ext_resource type="PackedScene" uid="uid://cjvmssu6g2kpp" path="res://Objects/Towers/Cappo Tower.tscn" id="7_ci5pp"]
 [ext_resource type="Texture2D" uid="uid://ce5p5bwinmp6y" path="res://Resources/UI/diskpocket.png" id="7_ufr7l"]
-[ext_resource type="PackedScene" uid="uid://du2sk0sn7uo83" path="res://Objects/Towers/Binki Tower.tscn" id="8_1h5vt"]
-[ext_resource type="Script" path="res://Objects/Towers/Tower Data/TowerData.gd" id="8_hbfo4"]
-
-[sub_resource type="Resource" id="Resource_14b2d"]
-resource_local_to_scene = true
-script = ExtResource("8_hbfo4")
-name = "Cappo"
-class_trait = 1
-oddity_trait = 4
-oddity_2_trait = 0
-cost = 1
-damage = 1
-on_hit_type = 0
-on_hit_damage = 0
-explosive = 0
-amount_of_shots = 1
-pierces = 0
-shootingSpeed = 1.0
-projectileSpeed = 100.0
-_range = 50.0
+[ext_resource type="PackedScene" uid="uid://5bl1ugummgkt" path="res://Objects/Shop/Shop.tscn" id="8_hwgyb"]
 
 [node name="Main Scene - Game Manager" type="Node2D" node_paths=PackedStringArray("inventory_ui")]
 position = Vector2(-353, -239)
@@ -61,8 +42,13 @@ position = Vector2(341.333, 104.333)
 texture = ExtResource("5_gob70")
 
 [node name="Inventory4" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(346.429, 97.1429)
 texture = ExtResource("4_xf1s1")
+
+[node name="Inventory5" type="Sprite2D" parent="Inventory"]
+position = Vector2(346.429, 65.9164)
+texture = ExtResource("6_1q7oa")
 
 [node name="Diskpocket" type="Sprite2D" parent="Inventory"]
 visible = false
@@ -147,13 +133,9 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(52.227, 124.375)
 scale = Vector2(0.5, 0.5)
 
-[node name="Cappo Tower" parent="." instance=ExtResource("7_ci5pp")]
-position = Vector2(-29.103, 40.8275)
-towerData = SubResource("Resource_14b2d")
-
-[node name="Binki Tower" parent="." instance=ExtResource("8_1h5vt")]
-position = Vector2(170.893, -102.731)
-
-[node name="Binki Tower2" parent="." node_paths=PackedStringArray("dice") instance=ExtResource("8_1h5vt")]
-position = Vector2(185.242, -41.3279)
-dice = NodePath("../Binki Tower/DiceRoller")
+[node name="Shop" parent="." instance=ExtResource("8_hwgyb")]
+offset_left = 58.0117
+offset_top = 86.11
+offset_right = 58.0117
+offset_bottom = 86.11
+scale = Vector2(1.4, 1.4)

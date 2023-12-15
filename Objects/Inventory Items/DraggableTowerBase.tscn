@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://c35q52ls5mr4h"]
+
+[ext_resource type="Script" path="res://Objects/Inventory Items/DraggableTowerBase.gd" id="1_prhol"]
+[ext_resource type="SpriteFrames" uid="uid://bs87qcttwag3o" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Cappo Tower.tres" id="2_iqcdj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1v5g"]
+radius = 37.7796
+
+[node name="InventoryDraggableItem" type="Node2D"]
+script = ExtResource("1_prhol")
+
+[node name="Mouse Region" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 1.0
+offset_bottom = 1.0
+scale = Vector2(2, 2)
+action_mode = 0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3.53213e-07, 0.37037)
+shape = SubResource("CircleShape2D_h1v5g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_iqcdj")
+animation = &"DwarfA"
+autoplay = "DwarfA"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Hover Timer" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
+
+[connection signal="mouse_released" from="." to="." method="_on_mouse_released"]
+[connection signal="mouse_entered" from="Mouse Region" to="." method="_on_mouse_region_mouse_entered"]
+[connection signal="mouse_exited" from="Mouse Region" to="." method="_on_mouse_region_mouse_exited"]
+[connection signal="pressed" from="Mouse Region" to="." method="_on_mouse_region_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Hover Timer" to="." method="_on_hover_timer_timeout"]

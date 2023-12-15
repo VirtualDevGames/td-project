@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="TowerData" load_steps=2 format=3 uid="uid://dlpkjfsqbjvud"]
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://dlpkjfsqbjvud"]
 
+[ext_resource type="SpriteFrames" uid="uid://bysj872got67i" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Whooshie_anim.tres" id="1_f8eku"]
 [ext_resource type="Script" path="res://Objects/Towers/Tower Data/TowerData.gd" id="1_n6fye"]
 
 [resource]
 script = ExtResource("1_n6fye")
 name = "Whooshie"
-class_trait = 0
-oddity_trait = 0
+animation = ExtResource("1_f8eku")
+class_trait = 4
+oddity_trait = 2
 oddity_2_trait = 0
 cost = 1
 damage = 1

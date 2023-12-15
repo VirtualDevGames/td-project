@@ -100,4 +100,5 @@ shape = SubResource("CircleShape2D_3eerw")
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_s7tgf")
 animation = &"KacklonD Idle"
+autoplay = "KacklonD Idle"
 frame_progress = 0.269494

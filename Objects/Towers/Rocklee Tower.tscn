@@ -17,4 +17,5 @@ shape = SubResource("CircleShape2D_qdmdq")
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = ExtResource("3_pkaej")
 animation = &"Earth Small A"
+autoplay = "Earth Small A"
 frame_progress = 0.195597

@@ -9,6 +9,7 @@ class_name GameManager
 @export var floppy_disk_spawn_points : Array[Node]
 @export var inventory_ui : Control
 
+var current_tilemap : WorldMap
 # UI toggle
 var moving_ui : bool = false
 var ui_on_left : bool = true
@@ -21,21 +22,21 @@ var currentLevel : Node2D
 var amount_of_items : int = 0
 var amount_of_items_limit = 8
 var inventory_draggable_item = preload("res://Objects/Inventory Items/InventoryDraggableItem.tscn")
-var item_spreadshot = preload("res://Objects/Inventory Items/SpreadShot_InventoryDraggableItem.tscn")
-var item_rangeup = preload("res://Objects/Inventory Items/RangeUp_InventoryDraggableItem.tscn")
-var item_attackSpeedUp = preload("res://Objects/Inventory Items/AttackSpeed_InventoryDraggableItem.tscn")
-var item_explosive = preload("res://Objects/Inventory Items/InventoryDraggableItem.tscn")
+var item_spreadshot          = preload("res://Objects/Inventory Items/SpreadShot_InventoryDraggableItem.tscn")
+var item_rangeup             = preload("res://Objects/Inventory Items/RangeUp_InventoryDraggableItem.tscn")
+var item_attackSpeedUp       = preload("res://Objects/Inventory Items/AttackSpeed_InventoryDraggableItem.tscn")
+var item_explosive           = preload("res://Objects/Inventory Items/InventoryDraggableItem.tscn")
 
-var fire_trait = preload("res://Objects/Traits/Fire.tres")
-var grass_trait = preload("res://Objects/Traits/Grass.tres")
-var ice_trait = preload("res://Objects/Traits/Ice.tres")
-var rock_trait = preload("res://Objects/Traits/Rock.tres")
-var mystic_trait = preload("res://Objects/Traits/Mystic.tres")
+var fire_trait     = preload("res://Objects/Traits/Fire.tres")
+var grass_trait    = preload("res://Objects/Traits/Grass.tres")
+var ice_trait      = preload("res://Objects/Traits/Ice.tres")
+var rock_trait     = preload("res://Objects/Traits/Rock.tres")
+var mystic_trait   = preload("res://Objects/Traits/Mystic.tres")
 var piercing_trait = preload("res://Objects/Traits/Piercing.tres")
-var reroll_trait = preload("res://Objects/Traits/Reroll.tres")
-var swift_trait = preload("res://Objects/Traits/Swift.tres")
-
-
+var reroll_trait   = preload("res://Objects/Traits/Reroll.tres")
+var swift_trait    = preload("res://Objects/Traits/Swift.tres")
+var thunder_trait  = preload("res://Objects/Traits/Thunder.tres")
+var wind_trait     = preload("res://Objects/Traits/Wind.tres")
 
 var traits : Array[TraitResource]  = [
 	# Classes
@@ -43,6 +44,8 @@ var traits : Array[TraitResource]  = [
 	grass_trait,
 	ice_trait,
 	rock_trait,
+	thunder_trait,
+	wind_trait,
 	# Oddity
 	mystic_trait,
 	piercing_trait,
@@ -50,7 +53,10 @@ var traits : Array[TraitResource]  = [
 	swift_trait
 ]
 
+var dragtower = preload("res://Objects/Inventory Items/DraggableTowerBase.tscn")
+
 func _ready():
+	GetCurrentTilemap()
 	GetUISlots()
 	SortTraits()
 	UiSignals.update_traits_column.emit()
@@ -58,15 +64,13 @@ func _ready():
 
 # Inventory UI  x original -122 target -20 
 func _process(_delta):
-	if Input.is_action_just_pressed("Spacebar"):
-		SpawnItem(item_spreadshot)
-		UiSignals.emit_signal("increase_score")
-		
 	if moving_ui:
 		MoveInventory()
 
 func _input(event):
-	if Input.is_action_just_pressed("Inventory"):
+	if Input.is_action_just_pressed("Spacebar"):
+		SpawnItem(dragtower)
+	if Input.is_action_just_pressed("E"):
 		if not moving_ui:
 			moving_ui = true
 			ui_move_direction = -ui_move_direction
@@ -83,9 +87,7 @@ func PrintTraits():
 	for t in traits :
 		print(t.name_, "  ", t.amount)
 	print("")
-	#SortTraits()
 
-#var held_item : Inventory
 func LoadLevel(levelName : String) :
 	UnloadLevel()
 	var levelPath = "res://Objects/Maps/%s.tscn" % levelName
@@ -105,7 +107,8 @@ func SpawnItem(item_to_spawn : PackedScene):
 		floppy_disk_spawn_points[amount_of_items].add_child(floppy_instance)
 		#SetItemUpgradeParameters(floppy_instance, TowerData.Properties.damage, 1)
 		floppy_instance.global_position = floppy_disk_spawn_points[amount_of_items].global_position
-		(floppy_instance as InventoryDraggableItem).GetOriginalPosition(floppy_disk_spawn_points[amount_of_items].global_position)
+		#(floppy_instance as InventoryDraggableItem).GetOriginalPosition(floppy_disk_spawn_points[amount_of_items].global_position)
+		floppy_instance.GetOriginalPosition(floppy_disk_spawn_points[amount_of_items].global_position)
 		amount_of_items = amount_of_items + 1
 
 func SetItemUpgradeParameters(item_instance    : InventoryDraggableItem, \
@@ -142,9 +145,13 @@ func UpdateTrait(tower : TowerBase, amount : int) :
 		SortTraits()
 		UiSignals.update_traits_column.emit()
 
-
-
 func _on_world_boundaries_area_entered(area):
 	area.call_deferred("queue_free")
+
+func GetCurrentTilemap():
+	for child in get_children() :
+		if child is WorldMap :
+			current_tilemap = child
+			break
 
 

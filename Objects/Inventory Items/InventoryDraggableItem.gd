@@ -43,7 +43,7 @@ func _process(_delta):
 		global_position = lerp(global_position, get_global_mouse_position(), move_to_mouse_varAlph)
 		move_to_mouse_varAlph = AlphaVarScaling(move_to_mouse_varAlph, 0.5, 0.1)
 	
-	if Input.is_action_just_released("M1") : 
+	if Input.is_action_just_released("Left Click") : 
 		if picked_up && area.get_overlapping_areas().size() > 0 :
 			var closest_tower = CheckForAreasInsideAreas()
 			if closest_tower :

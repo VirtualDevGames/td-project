@@ -17,5 +17,6 @@ shape = SubResource("CircleShape2D_t4um7")
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = ExtResource("3_l8sbf")
 animation = &"Slime Square C"
+autoplay = "Slime Square C"
 frame = 1
 frame_progress = 0.666344

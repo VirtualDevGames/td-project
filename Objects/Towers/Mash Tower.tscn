@@ -1,48 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvhpkgvl1cgb8"]
+[gd_scene load_steps=5 format=3 uid="uid://bvhpkgvl1cgb8"]
 
 [ext_resource type="PackedScene" uid="uid://d37washb3psk8" path="res://Objects/Towers/towerBase.tscn" id="1_crgvp"]
 [ext_resource type="Resource" uid="uid://bu2qbfattq7qe" path="res://Objects/Towers/Tower Data/Mash_td.tres" id="2_f8jsr"]
-[ext_resource type="Texture2D" uid="uid://d06w3v8n1h5xr" path="res://Resources/Sprites/Enemies/Pixel Mobs/MushroomA.png" id="3_rgmeh"]
+[ext_resource type="SpriteFrames" uid="uid://fuh2arbfv0hn" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Mash_anim.tres" id="3_jas1q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m8eya"]
 resource_local_to_scene = true
 radius = 50.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bicky"]
-atlas = ExtResource("3_rgmeh")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xa6x2"]
-atlas = ExtResource("3_rgmeh")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oket5"]
-atlas = ExtResource("3_rgmeh")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n2e73"]
-atlas = ExtResource("3_rgmeh")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7y6r5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bicky")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xa6x2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oket5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n2e73")
-}],
-"loop": true,
-"name": &"MushroomA",
-"speed": 5.0
-}]
 
 [node name="towerBase" instance=ExtResource("1_crgvp")]
 towerData = ExtResource("2_f8jsr")
@@ -51,5 +15,6 @@ towerData = ExtResource("2_f8jsr")
 shape = SubResource("CircleShape2D_m8eya")
 
 [node name="AnimatedSprite2D" parent="." index="3"]
-sprite_frames = SubResource("SpriteFrames_7y6r5")
+sprite_frames = ExtResource("3_jas1q")
 animation = &"MushroomA"
+autoplay = "MushroomA"

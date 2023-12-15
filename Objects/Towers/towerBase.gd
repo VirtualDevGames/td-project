@@ -99,6 +99,9 @@ func UpgradeProperty(property_name : String, value : float) :
 	towerData.set(property_name, towerData.get(property_name) + value)
 	SetTowerData(towerData)
 
+func GetTowerData() -> TowerData:
+	return towerData
+
 # Follow Mouse
 func _on_area_2d_mouse_entered():
 	pass #isFollowingTarget = true

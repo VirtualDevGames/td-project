@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_186d3")
 name = "Bungo"
-class_trait = 0
-oddity_trait = 0
+class_trait = 2
+oddity_trait = 3
 oddity_2_trait = 0
 cost = 1
 damage = 1

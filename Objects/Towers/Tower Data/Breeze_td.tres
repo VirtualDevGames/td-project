@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="TowerData" load_steps=2 format=3 uid="uid://di31gk4516dlx"]
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://di31gk4516dlx"]
 
+[ext_resource type="SpriteFrames" uid="uid://ygquh8rd242x" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Breeze_anim.tres" id="1_08lcg"]
 [ext_resource type="Script" path="res://Objects/Towers/Tower Data/TowerData.gd" id="1_teo3r"]
 
 [resource]
 script = ExtResource("1_teo3r")
 name = "Breeze"
-class_trait = 0
-oddity_trait = 0
+animation = ExtResource("1_08lcg")
+class_trait = 4
+oddity_trait = 2
 oddity_2_trait = 0
 cost = 1
 damage = 1

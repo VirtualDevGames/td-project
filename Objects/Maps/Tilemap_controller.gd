@@ -29,7 +29,8 @@ func _process(_delta):
 	if Input.is_action_just_pressed("Spacebar") :
 		can_place_turrets = !can_place_turrets
 
-func _input(event):
+
+func _input(_event):
 	if Input.is_action_just_pressed("Left Click"):
 			if can_place_turrets:
 				var tile_mouse_pos : Vector2i = local_to_map(get_local_mouse_position())
@@ -68,5 +69,12 @@ func SpawnEnemy() :
 	
 var cappo_tower = preload("res://Objects/Towers/Cappo Tower.tscn")
 var binki_tower = preload("res://Objects/Towers/Binki Tower.tscn")
+var soot_tower  = preload("res://Objects/Towers/Soot Tower.tscn")
 func SpawnTestTowers():
-	SpawnTower(Vector2(-73,41), cappo_tower)
+	await $"Await Setup Delay".timeout
+	SpawnTower(Vector2(-73,41), soot_tower)
+
+func GetHoveredTile(pos : Vector2 = Vector2(0,0)) -> Vector2i:
+	var tile_mouse_pos : Vector2i = local_to_map(get_local_mouse_position())
+	return tile_mouse_pos
+

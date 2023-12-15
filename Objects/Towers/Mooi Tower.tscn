@@ -17,4 +17,5 @@ shape = SubResource("CircleShape2D_umcmf")
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = ExtResource("3_06d6y")
 animation = &"Dwarf B"
+autoplay = "Dwarf B"
 frame_progress = 0.0907444

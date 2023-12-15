@@ -1,0 +1,55 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://ygquh8rd242x"]
+
+[ext_resource type="Texture2D" uid="uid://dl3bur8gow1st" path="res://Resources/Sprites/Enemies/Pixel Mobs/AirA.png" id="1_6vg43"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_176v2"]
+atlas = ExtResource("1_6vg43")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytdvh"]
+atlas = ExtResource("1_6vg43")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgob7"]
+atlas = ExtResource("1_6vg43")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfl0d"]
+atlas = ExtResource("1_6vg43")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er22s"]
+atlas = ExtResource("1_6vg43")
+region = Rect2(64, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_176v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytdvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgob7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfl0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er22s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfl0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgob7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytdvh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

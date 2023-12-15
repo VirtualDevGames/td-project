@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://bysj872got67i"]
+
+[ext_resource type="Texture2D" uid="uid://c4uemu4jcvutw" path="res://Resources/Sprites/Enemies/Pixel Mobs/CloudD.png" id="1_hcjs5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy0g2"]
+atlas = ExtResource("1_hcjs5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lmha"]
+atlas = ExtResource("1_hcjs5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6xn6"]
+atlas = ExtResource("1_hcjs5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bakn"]
+atlas = ExtResource("1_hcjs5")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v746h"]
+atlas = ExtResource("1_hcjs5")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmmh0"]
+atlas = ExtResource("1_hcjs5")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krq1s"]
+atlas = ExtResource("1_hcjs5")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uk07"]
+atlas = ExtResource("1_hcjs5")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p360i"]
+atlas = ExtResource("1_hcjs5")
+region = Rect2(128, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy0g2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lmha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6xn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bakn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v746h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmmh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krq1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uk07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p360i")
+}],
+"loop": true,
+"name": &"CloudD",
+"speed": 5.0
+}]

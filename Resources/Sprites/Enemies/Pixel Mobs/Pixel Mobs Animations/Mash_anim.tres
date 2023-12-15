@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://fuh2arbfv0hn"]
+
+[ext_resource type="Texture2D" uid="uid://d06w3v8n1h5xr" path="res://Resources/Sprites/Enemies/Pixel Mobs/MushroomA.png" id="1_tfwhl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bicky"]
+atlas = ExtResource("1_tfwhl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa6x2"]
+atlas = ExtResource("1_tfwhl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oket5"]
+atlas = ExtResource("1_tfwhl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2e73"]
+atlas = ExtResource("1_tfwhl")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bicky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa6x2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oket5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2e73")
+}],
+"loop": true,
+"name": &"MushroomA",
+"speed": 5.0
+}]

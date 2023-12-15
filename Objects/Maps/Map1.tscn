@@ -357,3 +357,8 @@ visible = false
 position = Vector2(-145, 34)
 
 [node name="Path2D" parent="EnemySpawnPoint" instance=ExtResource("3_oy6w5")]
+
+[node name="Await Setup Delay" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true

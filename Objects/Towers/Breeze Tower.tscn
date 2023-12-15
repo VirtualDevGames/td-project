@@ -1,64 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://o01ctvkumauy"]
+[gd_scene load_steps=5 format=3 uid="uid://o01ctvkumauy"]
 
 [ext_resource type="PackedScene" uid="uid://d37washb3psk8" path="res://Objects/Towers/towerBase.tscn" id="1_r0kka"]
 [ext_resource type="Resource" uid="uid://di31gk4516dlx" path="res://Objects/Towers/Tower Data/Breeze_td.tres" id="2_5il3a"]
-[ext_resource type="Texture2D" uid="uid://dl3bur8gow1st" path="res://Resources/Sprites/Enemies/Pixel Mobs/AirA.png" id="2_syuq6"]
+[ext_resource type="SpriteFrames" uid="uid://ygquh8rd242x" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Breeze_anim.tres" id="3_b2drv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p7a0g"]
 resource_local_to_scene = true
 radius = 50.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_176v2"]
-atlas = ExtResource("2_syuq6")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ytdvh"]
-atlas = ExtResource("2_syuq6")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mgob7"]
-atlas = ExtResource("2_syuq6")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xfl0d"]
-atlas = ExtResource("2_syuq6")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_er22s"]
-atlas = ExtResource("2_syuq6")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3leuw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_176v2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ytdvh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mgob7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xfl0d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_er22s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xfl0d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mgob7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ytdvh")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="towerBase" instance=ExtResource("1_r0kka")]
 towerData = ExtResource("2_5il3a")
@@ -67,6 +15,7 @@ towerData = ExtResource("2_5il3a")
 shape = SubResource("CircleShape2D_p7a0g")
 
 [node name="AnimatedSprite2D" parent="." index="3"]
-sprite_frames = SubResource("SpriteFrames_3leuw")
+sprite_frames = ExtResource("3_b2drv")
 animation = &"default"
+autoplay = "default"
 frame_progress = 0.67939

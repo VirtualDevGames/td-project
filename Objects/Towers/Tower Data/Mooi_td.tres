@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="TowerData" load_steps=2 format=3 uid="uid://cv0s8thbvo1nb"]
+[gd_resource type="Resource" script_class="TowerData" load_steps=3 format=3 uid="uid://cv0s8thbvo1nb"]
 
 [ext_resource type="Script" path="res://Objects/Towers/Tower Data/TowerData.gd" id="1_1lgfe"]
+[ext_resource type="SpriteFrames" uid="uid://cw61oimr55l4h" path="res://Resources/Sprites/Enemies/Pixel Mobs/Pixel Mobs Animations/Mooi_anim.tres" id="1_kc6er"]
 
 [resource]
 script = ExtResource("1_1lgfe")
 name = "Mooi"
-class_trait = 1
+animation = ExtResource("1_kc6er")
+class_trait = 2
 oddity_trait = 4
+oddity_2_trait = 0
 cost = 1
 damage = 1
 on_hit_type = 0
